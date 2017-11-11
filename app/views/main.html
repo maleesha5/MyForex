@@ -1,163 +1,438 @@
-<!-- Carousel
-    ================================================== -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
-      <div class="container">
-        <div class="carousel-caption">
-          <h1>Example headline.</h1>
-          <p>Note: If you're viewing this page via a
-            <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to
-            web browser security rules.</p>
-          <p>
-            <a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a>
-          </p>
+<div class="container" style="padding-top: 15px">
+        <div class="row">
+                <div class="col-sm-8">
+                        <div class="card bg-light mb-3">
+                                <h4 class="card-header" style="text-align: center;font-weight: bold">Daily Exchange Rates From Central Bank</h4>
+                                <div class="card-body">
+                                        <table class="table table-hover">
+                                                <thead class="table-inverse" style="background: #004fa3">
+                                                        <tr>
+                                                                <th scope="col" style="font-size: 16px">Country</th>
+                                                                <th scope="col" style="font-size: 16px">Currency</th>
+                                                                <th scope="col" style="font-size: 16px">Sell Rate</th>
+                                                                <th scope="col" style="font-size: 16px">Buy Rate</th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                        <tr>
+                                                                <th scope="row" style="font-size: 16px">
+                                                                        <p class="flag-icon flag-icon-us" style="margin-right: 5px;margin-bottom: 0px"></p>USA</th>
+                                                                <td>US Dollar (USD)</td>
+                                                                <td>0.7449</td>
+                                                                <td>0.7449</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th scope="row" style="font-size: 16px">
+                                                                        <p class="flag-icon flag-icon-eu" style="margin-right: 5px;margin-bottom: 0px"></p>European Union</th>
+                                                                <td>Euro (EUR)</td>
+                                                                <td>0.6311</td>
+                                                                <td>0.6311</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th scope="row" style="font-size: 16px">
+                                                                        <p class="flag-icon flag-icon-gb" style="margin-right: 5px;margin-bottom: 0px"></p>United Kingdom</th>
+                                                                <td>British Pound (GBP)</td>
+                                                                <td>0.7449</td>
+                                                                <td>0.6311</td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th scope="row" style="font-size: 16px">
+                                                                        <p class="flag-icon flag-icon-th" style="margin-right: 5px;margin-bottom: 0px"></p>Thailand</th>
+                                                                <td>Thai Baht (THB)</td>
+                                                                <td>0.6311</td>
+                                                                <td>0.6311</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                                <th scope="row" style="font-size: 16px">
+                                                                        <p class="flag-icon flag-icon-sg" style="margin-right: 5px;margin-bottom: 0px"></p>Singapore</th>
+                                                                <td>Singapore Dollar (SGD)</td>
+                                                                <td>0.6311</td>
+                                                                <td>0.6311</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                                <th scope="row" style="font-size: 16px">
+                                                                        <p class="flag-icon flag-icon-id" style="margin-right: 5px;margin-bottom: 0px"></p>Indonesia</th>
+                                                                <td>Indonesian Rupiah (IDR)</td>
+                                                                <td>0.6311</td>
+                                                                <td>0.6311</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                                <th scope="row" style="font-size: 16px">
+                                                                        <p class="flag-icon flag-icon-jp" style="margin-right: 5px;margin-bottom: 0px"></p>Japan</th>
+                                                                <td>Japanese Yen (JPY)</td>
+                                                                <td>0.6311</td>
+                                                                <td>0.6311</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                                <th scope="row" style="font-size: 16px">
+                                                                        <p class="flag-icon flag-icon-in" style="margin-right: 5px;margin-bottom: 0px"></p>India</th>
+                                                                <td>Indian Rupees</td>
+                                                                <td>0.6311</td>
+                                                                <td>0.6311</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                                <th scope="row" style="font-size: 16px">
+                                                                        <p class="flag-icon flag-icon-lk" style="margin-right: 5px;margin-bottom: 0px"></p>Sri Lanka</th>
+                                                                <td>Sri Lanakan Rupees</td>
+                                                                <td>0.6311</td>
+                                                                <td>0.6311</td>
+
+                                                        </tr>
+                                                </tbody>
+                                        </table>
+                                        <footer class="blockquote-footer">Source Of Data
+                                                <cite title="Source Title">Central Bank Sri Lanka</cite>
+                                        </footer>
+                                </div>
+                        </div>
+                </div>
+                <div class="col-sm-4 align-self-center">
+                        <div class="card bg-light mb-3">
+                                <h4 class="card-header" style="text-align: center;font-weight: bold">Rate Calculator</h4>
+                                <div class="card-body">
+                                </div>
+                        </div>
+                </div>
+
         </div>
-      </div>
-    </div>
-    <div class="item">
-      <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
-      <div class="container">
-        <div class="carousel-caption">
-          <h1>Another example headline.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-            Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p>
-            <a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-      <div class="container">
-        <div class="carousel-caption">
-          <h1>One more for good measure.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-            Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p>
-            <a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
-<!-- /.carousel -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <table class="table table-xs table-hover">
-        <thead class="" style="text-align: center">
-          <tr>
-            <th scope="col"></th>
-            <th scope="col" style="text-align: left">Currency</th>
-            <th scope="col">Buy</th>
-            <th scope="col">Sell</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">
-              <p class="flag-icon flag-icon-us" style="margin-left: 5px"></p>
-            </th>
-            <td>USD</td>
-            <td style="text-align: right">150.0000</td>
-            <td style="text-align: right">250.0000</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <p class="flag-icon flag-icon-gb"></p>
-            </th>
-            <td>GBP</td>
-            <td style="text-align: right">150</td>
-            <td style="text-align: right">250</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <p class="flag-icon flag-icon-eu"></p>
-            </th>
-            <td>EUR</td>
-            <td style="text-align: right">150</td>
-            <td style="text-align: right">250</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <p class="flag-icon flag-icon-ch"></p>
-            </th>
-            <td>CHF</td>
-            <td style="text-align: right">150</td>
-            <td style="text-align: right">250</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <p class="flag-icon flag-icon-ca"></p>
-            </th>
-            <td>CAD</td>
-            <td style="text-align: right">150</td>
-            <td style="text-align: right">250</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <p class="flag-icon flag-icon-au"></p>
-            </th>
-            <td>AUD</td>
-            <td style="text-align: right">150</td>
-            <td style="text-align: right">250</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <p class="flag-icon flag-icon-sg"></p>
-            </th>
-            <td>SGD</td>
-            <td style="text-align: right">150</td>
-            <td style="text-align: right">250</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <p class="flag-icon flag-icon-jp"></p>
-            </th>
-            <td>GPY</td>
-            <td style="text-align: right">150</td>
-            <td style="text-align: right">250</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <p class="flag-icon flag-icon-cn"></p>
-            </th>
-            <td>CNY</td>
-            <td style="text-align: right">150</td>
-            <td style="text-align: right">250</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <p class="flag-icon flag-icon-in"></p>
-            </th>
-            <td>INR</td>
-            <td style="text-align: right">150</td>
-            <td style="text-align: right">250</td>
-          </tr>
-        </tbody>
-      </table>
-      <p style="text-align: right">
-        <a href="">More>></a>
-      </p>
-    </div>
-    <div class="col-md-8">.col-md-4</div>
-  </div>
+
+<div class="container" style="padding-top: 15px">
+        <div class="card bg-light">
+                <h4 class="card-header" style="text-align: center;font-weight: bold">Best Rates in Sri Lanka</h4>
+                <div class="card-body">
+                        <table class="table table-lg table-bordered table-responsive table-hover" style="padding-left: 0px">
+                                <thead>
+                                        <tr>
+                                                <th scope="col" colspan="2" style="font-size: 16px">Bank</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-us" style="margin-right: 5px;margin-bottom: 0px"></p>USD</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-sl" style="margin-right: 5px;margin-bottom: 0px"></p>INR</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-gb" style="margin-right: 5px;margin-bottom: 0px"></p>SLR</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-eu" style="margin-right: 5px;margin-bottom: 0px"></p>JPY</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-th" style="margin-right: 5px;margin-bottom: 0px"></p>EU</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-in" style="margin-right: 5px;margin-bottom: 0px"></p>USD</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-jp" style="margin-right: 5px;margin-bottom: 0px"></p>USD</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-us" style="margin-right: 5px;margin-bottom: 0px"></p>USD</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-sl" style="margin-right: 5px;margin-bottom: 0px"></p>INR</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-gb" style="margin-right: 5px;margin-bottom: 0px"></p>SLR</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-eu" style="margin-right: 5px;margin-bottom: 0px"></p>JPY</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-th" style="margin-right: 5px;margin-bottom: 0px"></p>EU</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-in" style="margin-right: 5px;margin-bottom: 0px"></p>USD</th>
+                                                <th scope="col" style="font-size: 16px">
+                                                        <p class="flag-icon flag-icon-jp" style="margin-right: 5px;margin-bottom: 0px"></p>USD</th>
+                                                        <th scope="col" style="font-size: 16px">
+                                                                <p class="flag-icon flag-icon-jp" style="margin-right: 5px;margin-bottom: 0px"></p>USD</th>
+                                                                <th scope="col" style="font-size: 16px">
+                                                                        <p class="flag-icon flag-icon-jp" style="margin-right: 5px;margin-bottom: 0px"></p>USD</th>
+                                                                        <th scope="col" style="font-size: 16px">
+                                                                                <p class="flag-icon flag-icon-jp" style="margin-right: 5px;margin-bottom: 0px"></p>USD</th>
+                                                                                <th scope="col" style="font-size: 16px">
+                                                                                        <p class="flag-icon flag-icon-jp" style="margin-right: 5px;margin-bottom: 0px"></p>USD</th>
+                                                                                        <th scope="col" style="font-size: 16px">
+                                                                                                <p class="flag-icon flag-icon-jp" style="margin-right: 5px;margin-bottom: 0px"></p>USD</th>
+                                                                                                <th scope="col" style="font-size: 16px">
+                                                                                                        <p class="flag-icon flag-icon-jp" style="margin-right: 5px;margin-bottom: 0px"></p>USD</th>
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                                <th scope="row" style="font-size: 16px">HNB
+                                                </th>
+                                                <td>
+                                                        <a class="badge badge-pill badge-light" data-toggle="modal" data-target="#exampleModal" ng-click="openModal()" role="button">Get Rates</a>
+                                                </td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                
+
+                                        </tr>
+                                        <tr>
+                                                <th scope="row" style="font-size: 16px">BOC
+                                                </th>
+                                                <td>
+                                                        <a href="#" class="badge badge-pill badge-light">Get Rates</a>
+                                                </td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+
+                                        </tr>
+                                        <tr>
+                                                <th scope="row" style="font-size: 16px">Seylan Bank
+                                                </th>
+                                                <td>
+                                                        <a href="#" class="badge badge-pill badge-light">Get Rates</a>
+                                                </td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+
+                                        </tr>
+                                        <tr>
+                                                <th scope="row" style="font-size: 16px">NDB
+                                                </th>
+                                                <td>
+                                                        <a href="#" class="badge badge-pill badge-light">Get Rates</a>
+                                                </td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+
+                                        </tr>
+                                        <tr>
+                                                <th scope="row" style="font-size: 16px">NSB
+                                                </th>
+                                                <td>
+                                                        <a href="#" class="badge badge-pill badge-light">Get Rates</a>
+                                                </td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+
+                                        </tr>
+                                        <tr>
+                                                <th scope="row" style="font-size: 16px">HSBC
+                                                </th>
+                                                <td>
+                                                        <a href="#" class="badge badge-pill badge-light">Get Rates</a>
+                                                </td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+                                                <td>0.7449</td>
+
+                                        </tr>
+                                </tbody>
+                        </table>
+                </div>
+        </div>
 </div>
+<!--<table class="table table-responsive table-hover">
+                <thead class="table-inverse" style="background: #004fa3">
+                        <tr>
+                                <th scope="col" style="font-size: 16px">Country</th>
+                                <th scope="col" style="font-size: 16px">Currency</th>
+                                <th scope="col" style="font-size: 16px">Sell Rate</th>
+                                <th scope="col" style="font-size: 16px">Buy Rate</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                                <th scope="row" style="font-size: 16px">
+                                        <p class="flag-icon flag-icon-us" style="margin-right: 5px"></p>USA</th>
+                                <td>US Dollar (USD)</td>
+                                <td>0.7449</td>
+                                <td>0.7449</td>
+                        </tr>
+                        <tr>
+                                <th scope="row" style="font-size: 16px">
+                                        <p class="flag-icon flag-icon-eu" style="margin-right: 5px"></p>European Union</th>
+                                <td>Euro (EUR)</td>
+                                <td>0.6311</td>
+                                <td>0.6311</td>
+                        </tr>
+                        <tr>
+                                <th scope="row" style="font-size: 16px">
+                                        <p class="flag-icon flag-icon-gb" style="margin-right: 5px"></p>United Kingdom</th>
+                                <td>British Pound (GBP)</td>
+                                <td>0.7449</td>
+                                <td>0.6311</td>
+                        </tr>
+                        <tr>
+                                <th scope="row" style="font-size: 16px">
+                                        <p class="flag-icon flag-icon-th" style="margin-right: 5px"></p>Thailand</th>
+                                <td>Thai Baht (THB)</td>
+                                <td>0.6311</td>
+                                <td>0.6311</td>
+
+                        </tr>
+                        <tr>
+                                <th scope="row" style="font-size: 16px">
+                                        <p class="flag-icon flag-icon-sg" style="margin-right: 5px"></p>Singapore</th>
+                                <td>Singapore Dollar (SGD)</td>
+                                <td>0.6311</td>
+                                <td>0.6311</td>
+
+                        </tr>
+                        <tr>
+                                <th scope="row" style="font-size: 16px">
+                                        <p class="flag-icon flag-icon-id" style="margin-right: 5px"></p>Indonesia</th>
+                                <td>Indonesian Rupiah (IDR)</td>
+                                <td>0.6311</td>
+                                <td>0.6311</td>
+
+                        </tr>
+                        <tr>
+                                <th scope="row" style="font-size: 16px">
+                                        <p class="flag-icon flag-icon-jp" style="margin-right: 5px"></p>Japan</th>
+                                <td>Japanese Yen (JPY)</td>
+                                <td>0.6311</td>
+                                <td>0.6311</td>
+
+                        </tr>
+                        <tr>
+                                <th scope="row" style="font-size: 16px">
+                                        <p class="flag-icon flag-icon-in" style="margin-right: 5px"></p>India</th>
+                                <td>Indian Rupees</td>
+                                <td>0.6311</td>
+                                <td>0.6311</td>
+
+                        </tr>
+                        <tr>
+                                <th scope="row" style="font-size: 16px">
+                                        <p class="flag-icon flag-icon-lk" style="margin-right: 5px"></p>Sri Lanka</th>
+                                <td>Sri Lanakan Rupees</td>
+                                <td>0.6311</td>
+                                <td>0.6311</td>
+
+                        </tr>
+                </tbody>
+        </table>-->
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                                <h3 class="modal-title" id="exampleModalLabel">Get Rates via SMS</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="container">
+                                        <div class="form-group">
+                                                <label for="exampleInputEmail1">Email address</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="exampleInputPassword1">Password</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        </div>
+                                        <div class="form-check">
+                                                <label class="form-check-label">
+                                                        <input type="checkbox" class="form-check-input"> Check me out
+                                                </label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form>
+                                </div>
+                                <form>
+                        </div>
+                        <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                </div>
+        </div>
+</div>
+<script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <ul>
+                <li ng-repeat="item in $ctrl.items">
+                    <a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
+                </li>
+            </ul>
+            Selected: <b>{{ $ctrl.selected.item }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+        </div>
+    </script>
+    <button type="button" class="btn btn-default" ng-click="$ctrl.open()">Open me!</button>
+    
