@@ -81,3 +81,41 @@ body {
     border-bottom: 0;
   }
 }
+
+
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.chip.chip-md {
+  height: 42px;
+  line-height: 42px;
+  border-radius: 21px;
+}
+.chip.chip-md img {
+  height: 42px;
+  width: 42px;
+}
+
+.chip.chip-lg {
+  height: 52px;
+  line-height: 52px;
+  border-radius: 26px;
+}
+.chip.chip-lg img {
+  height: 52px;
+  width: 52px;
+}
