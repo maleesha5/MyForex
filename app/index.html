@@ -12,8 +12,6 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
   <link rel="stylesheet" href="bower_components/MDBootstrap/css/mdb.min.css" />
-  <link rel="stylesheet" href="styles/main.css" />
-  
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -31,46 +29,46 @@
   <header>
 
     <!--Navbar-->
-      <nav class="navbar navbar-expand-lg navbar-dark red fixed-top">
-        <div class="container">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item btn-group">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown
-                </a>
-                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>
-            </ul>
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            </form>
-          </div>
+    <nav class="navbar navbar-expand-lg navbar-dark red fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!/analytics">Analytics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item btn-group">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown
+              </a>
+              <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          </form>
         </div>
-      </nav>
+      </div>
+    </nav>
     <!--/.Navbar-->
 
   </header>
-  
+
   <!--Carousel Wrapper-->
 
   <div ng-view=""></div>
@@ -101,6 +99,21 @@
   <script src="bower_components/angular-touch/angular-touch.js"></script>
   <script src="bower_components/MDBootstrap/js/mdb.min.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/firebase/firebase.js"></script>
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBK2AfkwcPGre-rkpa9AgaYlHC5kwbeLBA",
+      authDomain: "myforexlk.firebaseapp.com",
+      databaseURL: "https://myforexlk.firebaseio.com",
+      projectId: "myforexlk",
+      storageBucket: "myforexlk.appspot.com",
+      messagingSenderId: "741473662904"
+    };
+    firebase.initializeApp(config);
+  </script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -108,98 +121,123 @@
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/main.js"></script>
   <script src="scripts/controllers/about.js"></script>
+  <script src="scripts/controllers/addBank.js"></script>  
+  <script src="scripts/services/bank.js"></script>
+  <script src="scripts/controllers/createadmin.js"></script>
   <!-- endbuild -->
 </body>
 <!--Footer-->
 <footer class="page-footer red center-on-small-only pt-0">
-    
-        <!--Footer Links-->
-        <div class="container">
-    
-            <!--Grid row-->
-            <div class="row pt-5 mb-3 text-center d-flex justify-content-center">
-    
-                <!--Grid column-->
-                <div class="col-md-2 mb-3">
-                    <h6 class="title font-bold"><a href="#!">Home</a></h6>
-                </div>
-                <!--Grid column-->
-    
-                <!--Grid column-->
-                <div class="col-md-2 mb-3">
-                    <h6 class="title font-bold"><a href="#!">Exchange Rates</a></h6>
-                </div>
-                <!--Grid column-->
-    
-                <!--Grid column-->
-                <div class="col-md-2 mb-3">
-                    <h6 class="title font-bold"><a href="#!">Best Rates</a></h6>
-                </div>
-                <!--Grid column-->
-                              
-    
-                <!--Grid column-->
-                <div class="col-md-2 mb-3">
-                    <h6 class="title font-bold"><a href="#!">Contact</a></h6>
-                </div>
-                <!--Grid column-->
-    
-            </div>
-            <!--Grid row-->
-    
-            <hr class="rgba-white-light" style="margin: 0 15%;">
-    
-            <!--Grid row-->
-            <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
-    
-                <!--Grid column-->
-                <div class="col-md-8 col-12 mt-5">
-                    <p style="line-height: 1.7rem">Site Info/Company Info Comes here....</p>
-    
-                </div>
-                <!--Grid column-->
-    
-            </div>
-            <!--Grid row-->
-    
-            <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
-    
-            <!--Grid row-->
-            <div class="row pb-3">
-    
-                <!--Grid column-->
-                <div class="col-md-12">
-    
-                    <div class="footer-socials mb-5 flex-center">
-                        <!--Facebook-->
-                        <a class="icons-sm fb-ic"><i class="fa fa-facebook fa-lg white-text mr-md-4"> </i></a>
-                        <!--Twitter-->
-                        <a class="icons-sm tw-ic"><i class="fa fa-twitter fa-lg white-text mr-md-4"> </i></a>
-                        <!--Google +-->
-                        <a class="icons-sm gplus-ic"><i class="fa fa-google-plus fa-lg white-text mr-md-4"> </i></a>
-                        <!--Linkedin-->
-                        <a class="icons-sm li-ic"><i class="fa fa-linkedin fa-lg white-text mr-md-4"> </i></a>
-                        <!--Instagram-->
-                        <a class="icons-sm ins-ic"><i class="fa fa-instagram fa-lg white-text mr-md-4"> </i></a>
-                        <!--Pinterest-->
-                        <a class="icons-sm pin-ic"><i class="fa fa-pinterest fa-lg white-text"> </i></a>
-                    </div>
-                </div>
-                <!--Grid column-->
-            </div>
-            <!--Grid row-->
-    
+
+  <!--Footer Links-->
+  <div class="container">
+
+    <!--Grid row-->
+    <div class="row pt-5 mb-3 text-center d-flex justify-content-center">
+
+      <!--Grid column-->
+      <div class="col-md-2 mb-3">
+        <h6 class="title font-bold">
+          <a href="#!">Home</a>
+        </h6>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-md-2 mb-3">
+        <h6 class="title font-bold">
+          <a href="#!">Exchange Rates</a>
+        </h6>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-md-2 mb-3">
+        <h6 class="title font-bold">
+          <a href="#!">Best Rates</a>
+        </h6>
+      </div>
+      <!--Grid column-->
+
+
+      <!--Grid column-->
+      <div class="col-md-2 mb-3">
+        <h6 class="title font-bold">
+          <a href="#!">Contact</a>
+        </h6>
+      </div>
+      <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+
+    <!--Grid row-->
+    <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+      <!--Grid column-->
+      <div class="col-md-8 col-12 mt-5">
+        <p style="line-height: 1.7rem">Site Info/Company Info Comes here....</p>
+
+      </div>
+      <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+    <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+    <!--Grid row-->
+    <div class="row pb-3">
+
+      <!--Grid column-->
+      <div class="col-md-12">
+
+        <div class="footer-socials mb-5 flex-center">
+          <!--Facebook-->
+          <a class="icons-sm fb-ic">
+            <i class="fa fa-facebook fa-lg white-text mr-md-4"> </i>
+          </a>
+          <!--Twitter-->
+          <a class="icons-sm tw-ic">
+            <i class="fa fa-twitter fa-lg white-text mr-md-4"> </i>
+          </a>
+          <!--Google +-->
+          <a class="icons-sm gplus-ic">
+            <i class="fa fa-google-plus fa-lg white-text mr-md-4"> </i>
+          </a>
+          <!--Linkedin-->
+          <a class="icons-sm li-ic">
+            <i class="fa fa-linkedin fa-lg white-text mr-md-4"> </i>
+          </a>
+          <!--Instagram-->
+          <a class="icons-sm ins-ic">
+            <i class="fa fa-instagram fa-lg white-text mr-md-4"> </i>
+          </a>
+          <!--Pinterest-->
+          <a class="icons-sm pin-ic">
+            <i class="fa fa-pinterest fa-lg white-text"> </i>
+          </a>
         </div>
-        <!--/Footer Links-->
-    
-        <!--Copyright-->
-        <div class="footer-copyright">
-            <div class="container-fluid">
-                © 2017 Copyright: <a href="https://www.lakithamunasinghe.com"> www.lakithamunasinghe.com </a>
-            </div>
-        </div>
-        <!--/Copyright-->
-    
-    </footer>
-    <!--/Footer-->
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+
+  </div>
+  <!--/Footer Links-->
+
+  <!--Copyright-->
+  <div class="footer-copyright">
+    <div class="container-fluid">
+      © 2017 Copyright:
+      <a href="https://www.lakithamunasinghe.com"> www.lakithamunasinghe.com </a>
+    </div>
+  </div>
+  <!--/Copyright-->
+
+</footer>
+<!--/Footer-->
+
 </html>

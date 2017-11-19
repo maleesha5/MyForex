@@ -8,46 +8,24 @@
  * Controller of the myForexlkApp
  */
 angular.module('myForexlkApp')
-  .controller('MainCtrl', function ($scope,$uibModal) {
+  .controller('MainCtrl', function ($scope, $uibModal, $firebaseObject, $firebaseArray) {
+    debugger
+    $scope.name = "maleesha";
 
-    $scope.openModal = function(){
-      console.log('Open Modal');
-    };
 
-    var $ctrl = this;
-    $scope.items = ['item1', 'item2', 'item3'];
-  
-    $scope.animationsEnabled = true;
-  
-    $scope.open = function (size, parentSelector) {
-      var parentElem = parentSelector ? 
-        angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
-      var modalInstance = $uibModal.open({
-        animation: $scope.animationsEnabled,
-        ariaLabelledBy: 'modal-title',
-        ariaDescribedBy: 'modal-body',
-        templateUrl: 'myModalContent.html',
-        controller: 'ModalInstanceCtrl',
-       // controllerAs: '$ctrl',
-        size: size,
-        appendTo: parentElem,
-        resolve: {
-          items: function () {
-            return $ctrl.items;
-          }
-        }
-      });
-    };
+    var ref = firebase.database().ref();
+    // download the data into a local object
+    var syncObject = $firebaseObject(ref);
+    // synchronize the object with a three-way data binding
+    // click on `index.html` above to see it used in the DOM!
+    syncObject.$bindTo($scope, "data");
 
-    modalInstance.result.then(function (selectedItem) {
-      $ctrl.selected = selectedItem;
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
+    syncObject.$loaded()
+    .then(function() {
+      console.log($scope.data);
+    })
+    .catch(function(err) {
+      console.error(err);
     });
 
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
   });
