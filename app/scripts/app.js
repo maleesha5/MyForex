@@ -16,7 +16,6 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'firebase',
     'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
@@ -24,27 +23,68 @@ angular
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        controllerAs: 'main',
+        resolve: {
+          // I will cause a 1 second delay
+          masterCurrencyList: function (CurrencyService) {
+            return CurrencyService.getMasterCurrencyList().then(function (response) {
+              return response.data;
+            }, function (error) {
+              return error.data;
+            })
+          },
+          bankList: function (BankService) {
+            return BankService.getBankList().then(function (response) {
+              return response.data;
+            }, function (error) {
+              return error.data;
+            })
+          },
+          cbRatesList: function (CBRatesService) {
+            return CBRatesService.getCBRatesByCurrentDate().then(function (response) {
+              return response.data;
+            }, function (error) {
+              return error.data;
+            })
+          },
+          bankRatesList: function (BankRatesService) {
+            return BankRatesService.getBankRatesByCurrentDate().then(function (response) {
+              return response.data;
+            }, function (error) {
+              return error.data;
+            })
+          }
+        }
       })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/addbankrates', {
+        templateUrl: 'views/bank/addRates.html',
+        controller: 'AddRatesCtrl',
+        controllerAs: ''
+      })
       .when('/analytics', {
         templateUrl: 'views/curanalysis.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+        controller: 'AddRatesCtrl',
+        controllerAs: ''
       })
-      .when('/bank', {
-        templateUrl: 'views/addBank.html',
-        controller: 'BankCtrl',
-        controllerAs: 'bank'
-      })
-      .when('/createAdmin', {
-        templateUrl: 'views/createadmin.html',
-        controller: 'CreateadminCtrl',
-        controllerAs: 'createAdmin'
+      .when('/addcbrates', {
+        templateUrl: 'views/addCBRates.html',
+        controller: 'AddCBRatesCtrl',
+        controllerAs: '',
+        resolve: {
+          // I will cause a 1 second delay
+          masterCurrencyList: function (CurrencyService) {
+            return CurrencyService.getMasterCurrencyList().then(function (response) {
+              return response.data;
+            }, function (error) {
+              return error.data;
+            })
+          }
+        }
       })
       .otherwise({
         redirectTo: '/'

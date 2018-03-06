@@ -1,0 +1,250 @@
+<div class="container" style="margin-top: 90px">
+    <div class="container-custom">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 " style="padding-bottom: 15px">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 style="text-align: center;font-weight: bold">Add Central Bank Rates</h4>
+                    </div>
+
+                    <div class="card-body" style="height: auto">
+                        <div style="vertical-align: center">
+                            <form class="form-inline" style="padding-left: 25px;">
+
+                                <div class="md-form form-group">
+                                    <div class="btn-group" style="margin-bottom: 5px; margin-right: 20px; padding-top: 50px;">
+
+                                        <button ng-if="!fromCurrency" class="btn btn-outline-danger waves-effect" style="width: 185px; " type="button" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">Select Currency</button>
+
+                                        <button ng-if="fromCurrency" class="btn btn-outline-danger waves-effect" style="width: 185px;  color: black" type="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <p ng-class="getFlag(fromCurrency.flag)" style="margin-right: 10px; margin-bottom: 0px;"></p>
+                                            {{fromCurrency.currencyCode}}</button>
+
+
+                                        <div class="dropdown-menu pre-scrollable" style="width: 350px">
+                                            <button ng-repeat="currency in masterCurrencyList" class="dropdown-item" ng-click="setFromCurrency(currency)">
+                                                <p ng-class="getFlag(currency.flag)" style="margin-right: 10px; margin-bottom: 0px"></p>
+                                                {{currency.name}}
+                                                <div class="dropdown-divider"></div>
+                                            </button>
+
+                                            <div class="dropdown-divider"></div>
+                                        </div>
+                                    </div>
+                                    <div class="md-form form-group" style="margin-top: 25px;">
+                                        <input ng-model="currency.cbRate.buyRate" type="number" id="form1" class="form-control">
+                                        <label for="form1" class="">Buy Rate</label>
+                                    </div>
+                                    <div class="md-form form-group" style="margin-top: 25px">
+                                        <input ng-model="currency.cbRate.sellRate" type="number" id="form1" class="form-control">
+                                        <label for="form1" class="">Sell Rate</label>
+                                    </div>
+                                    <div class="btn-group" style="margin-bottom: 5px; padding-top: 50px;">
+                                        <button ng-click="addToTempCBRatesList(currency.cbRate, fromCurrency)" type="button" style="width: 185px;" class="btn btn-primary">
+                                            <b>Add Rates</b>
+                                        </button>
+                                        <button ng-click="saveCBRates()" type="button" style="margin-left: 50px" class="btn btn-outline-success waves-effect">Upload List</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container-custom">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="card bg-light mb-3">
+                    <h4 class="card-header" style="text-align: center;font-weight: bold">Daily Exchange Rates From Central Bank</h4>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead class="table-inverse" style="background: #004fa3">
+                                <tr>
+                                    <th scope="col" style="font-size: 16px">Country</th>
+                                    <th scope="col" style="font-size: 16px">Currency</th>
+                                    <th scope="col" style="font-size: 16px">Sell Rate</th>
+                                    <th scope="col" style="font-size: 16px">Buy Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="cbRate in cbRatesList">
+                                    <th scope="row" style="font-size: 16px">
+                                        <p ng-class="getFlag(cbRate.currerncyMaster.flag)" style="margin-right: 5px;margin-bottom: 0px"></p>{{cbRate.currerncyMaster.country}}</th>
+                                    <td>{{cbRate.currerncyMaster.name}} ({{cbRate.currerncyMaster.currencyCode}})</td>
+                                    <td>{{cbRate.buyRate}}</td>
+                                    <td>{{cbRate.sellRate}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <footer class="blockquote-footer">Source Of Data
+                            <cite title="Source Title">Central Bank Sri Lanka</cite>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="col-md-12">
+            <h4 style="text-align: center;font-weight: bold">Daily Exchange Rates From Central Bank</h4>
+            <p style="text-align: center;font-weight: bold">Current Date: {{date}}</p>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead class="table-inverse" style="background: #004fa3">
+                        <tr>
+                            <th scope="col" style="font-size: 16px">Country</th>
+                            <th scope="col" style="font-size: 16px">Currency</th>
+                            <th scope="col" style="font-size: 16px">Sell Rate</th>
+                            <th scope="col" style="font-size: 16px">Buy Rate</th>
+                            <th scope="col" style="font-size: 16px"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="currency in masterCurrencyList">
+                            <th scope="row" style="font-size: 16px">
+                                <p ng-class="getFlag(currency.flag)" style="margin-right: 5px;margin-bottom: 0px"></p>{{currency.country}}</th>
+                            <td>{{currency.name}} ({{currency.currencyCode}})</td>
+                            <td>
+                                <input ng-model="currency.cbRate.buyRate" type="number" class="form-control form-control-sm" placeholder="Buy Rate">
+                            </td>
+                            <td>
+                                <input ng-model="currency.cbRate.sellRate" type="number" class="form-control form-control-sm" placeholder="Sell Rate">
+                            </td>
+                            <td>
+                                <button ng-click="saveCBRate(currency.cbRate, currency.currencyCode)" type="submit" class="btn btn-primary btn-sm">Add</button>
+                            </td>
+                        </tr>
+                        <!--<currency-directive></currency-directive>-->
+    <!--<tr>
+                            <th scope="row" style="font-size: 16px">
+                                <p class="flag-icon flag-icon-eu" style="margin-right: 5px;margin-bottom: 0px"></p>European Union</th>
+                            <td>Euro (EUR)</td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Buy Rate">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Sell Rate">
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary btn-sm">Add</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="font-size: 16px">
+                                <p class="flag-icon flag-icon-gb" style="margin-right: 5px;margin-bottom: 0px"></p>United Kingdom</th>
+                            <td>British Pound (GBP)</td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Buy Rate">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Sell Rate">
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary btn-sm">Add</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="font-size: 16px">
+                                <p class="flag-icon flag-icon-th" style="margin-right: 5px;margin-bottom: 0px"></p>Thailand</th>
+                            <td>Thai Baht (THB)</td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Buy Rate">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Sell Rate">
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary btn-sm">Add</button>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row" style="font-size: 16px">
+                                <p class="flag-icon flag-icon-sg" style="margin-right: 5px;margin-bottom: 0px"></p>Singapore</th>
+                            <td>Singapore Dollar (SGD)</td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Buy Rate">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Sell Rate">
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary btn-sm">Add</button>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row" style="font-size: 16px">
+                                <p class="flag-icon flag-icon-id" style="margin-right: 5px;margin-bottom: 0px"></p>Indonesia</th>
+                            <td>Indonesian Rupiah (IDR)</td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Buy Rate">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Sell Rate">
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary btn-sm">Add</button>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row" style="font-size: 16px">
+                                <p class="flag-icon flag-icon-jp" style="margin-right: 5px;margin-bottom: 0px"></p>Japan</th>
+                            <td>Japanese Yen (JPY)</td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Buy Rate">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Sell Rate">
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary btn-sm">Add</button>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row" style="font-size: 16px">
+                                <p class="flag-icon flag-icon-in" style="margin-right: 5px;margin-bottom: 0px"></p>India</th>
+                            <td>Indian Rupees</td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Buy Rate">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Sell Rate">
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary btn-sm">Add</button>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row" style="font-size: 16px">
+                                <p class="flag-icon flag-icon-lk" style="margin-right: 5px;margin-bottom: 0px"></p>Sri Lanka</th>
+                            <td>Sri Lanakan Rupees</td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Buy Rate">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control form-control-sm" placeholder="Sell Rate">
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary btn-sm">Add</button>
+                            </td>
+
+                        </tr>-->
+    <!--</tbody>
+                </table>
+                <footer class="blockquote-footer">Source Of Data
+                    <cite title="Source Title">Central Bank Sri Lanka</cite>
+                </footer>
+            </div>
+        </div>-->

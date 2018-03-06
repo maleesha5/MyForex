@@ -14,7 +14,6 @@ angular.module('myForexlkApp')
     var ref = firebase.database().ref().child("banks");
     // create a synchronized array
     $scope.banks = $firebaseArray(ref);
-    debugger
     // add new items to the array
     // the message is automatically added to our Firebase database!
     $scope.addBank = function() {

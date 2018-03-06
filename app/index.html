@@ -2,80 +2,84 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>MyForex.LK</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <!-- build:css(.) styles/vendor.css -->
-  <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-  <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
-  <link rel="stylesheet" href="bower_components/MDBootstrap/css/mdb.min.css" />
-  <!-- endbower -->
-  <!-- endbuild -->
-  <!-- build:css(.tmp) styles/main.css -->
-  <link href="styles/custom.css" rel="stylesheet">
-
-  <!-- endbuild -->
+    <meta charset="utf-8">
+    <title>MyForex.LK</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link href="styles/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="styles/MDBootstrap/css/mdb.min.css" />
+    <!-- endbuild -->
 </head>
 
-<body ng-app="myForexlkApp">
-  <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-  <!--Main Navigation-->
-  <header>
-
+<header>
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark red fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#!/analytics">Analytics</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item btn-group">
-              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown
-              </a>
-              <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          </form>
+        <div class="container" style="margin-top:0px;">
+            <a href="#!/">
+                <img src="img/logo.png" alt="logo" style="width:120px;height:40px;padding-left:10px;" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-left:50px;">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exgrates.html">Exchange Rates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!/analytics">Analysis</a>
+                    </li>
+                    <li class="nav-item btn-group">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Rates
+                        </a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#!/addcbrates">Add Central Bank Rates</a>
+                            <a class="dropdown-item" href="#">Add Bank Rates</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                </form>
+            </div>
         </div>
-      </div>
     </nav>
     <!--/.Navbar-->
 
-  </header>
+</header>
 
-  <!--Carousel Wrapper-->
+<body ng-app="myForexlkApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-  <div ng-view=""></div>
+    <!--Main Navigation-->
 
 
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-  <!-- <script>
+    <!--Carousel Wrapper-->
+
+    <div ng-view=""></div>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <!-- <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
@@ -85,157 +89,156 @@
        ga('send', 'pageview');
     </script> -->
 
-  <!-- build:js(.) scripts/vendor.js -->
-  <!-- bower:js -->
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/popper.js/dist/umd/popper.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="bower_components/angular-touch/angular-touch.js"></script>
-  <script src="bower_components/MDBootstrap/js/mdb.min.js"></script>
-  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-  <script src="bower_components/firebase/firebase.js"></script>
-  <!-- AngularFire -->
-  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyBK2AfkwcPGre-rkpa9AgaYlHC5kwbeLBA",
-      authDomain: "myforexlk.firebaseapp.com",
-      databaseURL: "https://myforexlk.firebaseio.com",
-      projectId: "myforexlk",
-      storageBucket: "myforexlk.appspot.com",
-      messagingSenderId: "741473662904"
-    };
-    firebase.initializeApp(config);
-  </script>
-  <!-- endbower -->
-  <!-- endbuild -->
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/popper.js/dist/umd/popper.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <script src="styles/MDBootstrap/js/mdb.min.js"></script>
+    <!-- Scripts -->
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/services/currency/currencyService.js"></script>
+    <script src="scripts/controllers/services/banks/bankService.js"></script>
+    <script src="scripts/controllers/services/cbRates/cbRatesService.js"></script>
+    <script src="scripts/controllers/services/bankRates/bankRatesService.js"></script>
+    <script src="scripts/controllers/services/centralBank/centralBankRateService.js"></script>
+    <script src="scripts/controllers/bank/addRates.js"></script>
+    <script src="scripts/controllers/addCBRates.js"></script>
+    <script src="modal/CentralBankRate.js"></script>
+    <script src="modal/currency.js"></script>
 
-  <!-- build:js({.tmp,app}) scripts/scripts.js -->
-  <script src="scripts/app.js"></script>
-  <script src="scripts/controllers/main.js"></script>
-  <script src="scripts/controllers/about.js"></script>
-  <script src="scripts/controllers/addBank.js"></script>  
-  <script src="scripts/services/bank.js"></script>
-  <script src="scripts/controllers/createadmin.js"></script>
-  <!-- endbuild -->
+
+    <!-- endbuild -->
 </body>
 <!--Footer-->
 <footer class="page-footer red center-on-small-only pt-0">
 
-  <!--Footer Links-->
-  <div class="container">
+    <!--Footer Links-->
+    <div class="container">
 
-    <!--Grid row-->
-    <div class="row pt-5 mb-3 text-center d-flex justify-content-center">
+        <!--Grid row-->
+        <div class="row pt-5 mb-3 text-center d-flex justify-content-center">
 
-      <!--Grid column-->
-      <div class="col-md-2 mb-3">
-        <h6 class="title font-bold">
-          <a href="#!">Home</a>
-        </h6>
-      </div>
-      <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-2 mb-3">
+                <h6 class="title font-bold">
+                    <a href="#!">Home</a>
+                </h6>
+            </div>
+            <!--Grid column-->
 
-      <!--Grid column-->
-      <div class="col-md-2 mb-3">
-        <h6 class="title font-bold">
-          <a href="#!">Exchange Rates</a>
-        </h6>
-      </div>
-      <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-2 mb-3">
+                <h6 class="title font-bold">
+                    <a href="#!">Exchange Rates</a>
+                </h6>
+            </div>
+            <!--Grid column-->
 
-      <!--Grid column-->
-      <div class="col-md-2 mb-3">
-        <h6 class="title font-bold">
-          <a href="#!">Best Rates</a>
-        </h6>
-      </div>
-      <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-2 mb-3">
+                <h6 class="title font-bold">
+                    <a href="#!">Best Rates</a>
+                </h6>
+            </div>
+            <!--Grid column-->
 
 
-      <!--Grid column-->
-      <div class="col-md-2 mb-3">
-        <h6 class="title font-bold">
-          <a href="#!">Contact</a>
-        </h6>
-      </div>
-      <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-2 mb-3">
+                <h6 class="title font-bold">
+                    <a href="#!">Contact</a>
+                </h6>
+            </div>
+            <!--Grid column-->
 
-    </div>
-    <!--Grid row-->
-
-    <hr class="rgba-white-light" style="margin: 0 15%;">
-
-    <!--Grid row-->
-    <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
-
-      <!--Grid column-->
-      <div class="col-md-8 col-12 mt-5">
-        <p style="line-height: 1.7rem">Site Info/Company Info Comes here....</p>
-
-      </div>
-      <!--Grid column-->
-
-    </div>
-    <!--Grid row-->
-
-    <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
-
-    <!--Grid row-->
-    <div class="row pb-3">
-
-      <!--Grid column-->
-      <div class="col-md-12">
-
-        <div class="footer-socials mb-5 flex-center">
-          <!--Facebook-->
-          <a class="icons-sm fb-ic">
-            <i class="fa fa-facebook fa-lg white-text mr-md-4"> </i>
-          </a>
-          <!--Twitter-->
-          <a class="icons-sm tw-ic">
-            <i class="fa fa-twitter fa-lg white-text mr-md-4"> </i>
-          </a>
-          <!--Google +-->
-          <a class="icons-sm gplus-ic">
-            <i class="fa fa-google-plus fa-lg white-text mr-md-4"> </i>
-          </a>
-          <!--Linkedin-->
-          <a class="icons-sm li-ic">
-            <i class="fa fa-linkedin fa-lg white-text mr-md-4"> </i>
-          </a>
-          <!--Instagram-->
-          <a class="icons-sm ins-ic">
-            <i class="fa fa-instagram fa-lg white-text mr-md-4"> </i>
-          </a>
-          <!--Pinterest-->
-          <a class="icons-sm pin-ic">
-            <i class="fa fa-pinterest fa-lg white-text"> </i>
-          </a>
         </div>
-      </div>
-      <!--Grid column-->
-    </div>
-    <!--Grid row-->
+        <!--Grid row-->
 
-  </div>
-  <!--/Footer Links-->
+        <hr class="rgba-white-light" style="margin: 0 15%;">
 
-  <!--Copyright-->
-  <div class="footer-copyright">
-    <div class="container-fluid">
-      © 2017 Copyright:
-      <a href="https://www.lakithamunasinghe.com"> www.lakithamunasinghe.com </a>
+        <!--Grid row-->
+        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+            <!--Grid column-->
+            <div class="col-md-8 col-12 mt-5">
+                <p style="line-height: 1.7rem">Site Info/Company Info Comes here....</p>
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+        <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+        <!--Grid row-->
+        <div class="row pb-3">
+
+            <!--Grid column-->
+            <div class="col-md-12">
+
+                <div class="footer-socials mb-5 flex-center">
+                    <!--Facebook-->
+                    <a class="icons-sm fb-ic">
+                        <i class="fa fa-facebook fa-lg white-text mr-md-4"> </i>
+                    </a>
+                    <!--Twitter-->
+                    <a class="icons-sm tw-ic">
+                        <i class="fa fa-twitter fa-lg white-text mr-md-4"> </i>
+                    </a>
+                    <!--Google +-->
+                    <a class="icons-sm gplus-ic">
+                        <i class="fa fa-google-plus fa-lg white-text mr-md-4"> </i>
+                    </a>
+                    <!--Linkedin-->
+                    <a class="icons-sm li-ic">
+                        <i class="fa fa-linkedin fa-lg white-text mr-md-4"> </i>
+                    </a>
+                    <!--Instagram-->
+                    <a class="icons-sm ins-ic">
+                        <i class="fa fa-instagram fa-lg white-text mr-md-4"> </i>
+                    </a>
+                    <!--Pinterest-->
+                    <a class="icons-sm pin-ic">
+                        <i class="fa fa-pinterest fa-lg white-text"> </i>
+                    </a>
+                </div>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+
     </div>
-  </div>
-  <!--/Copyright-->
+    <!--/Footer Links-->
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="container-fluid">
+            © 2017 Copyright:
+            <a href="https://www.lakithamunasinghe.com"> www.lakithamunasinghe.com </a>
+        </div>
+    </div>
+    <!--/Copyright-->
 
 </footer>
 <!--/Footer-->

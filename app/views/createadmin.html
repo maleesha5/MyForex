@@ -2,36 +2,30 @@
 <div class="container" style="margin-top: 100px">
         <div class="row">
         <div class="col-sm-4">
-           <h1 class="text-center" style="font-family: fantasy;font-size: 80px"> Add Your Bank</h1>
+           <h1 class="text-center" style="font-family: fantasy;font-size: 80px">Add Your Admin</h1>
         </div>
         <div class="col-sm-8">
         <form>
             <div class="md-form">
                 <i class="fa fa-user prefix grey-text"></i>
-                <input ng-model="bank.bankName" type="text" id="form3" class="form-control">
-                <label for="form3">Bank Name</label>
+                <input ng-model="user.firstName" type="text" id="form3" class="form-control">
+                <label for="form3">First Name</label>
             </div>
     
             <div class="md-form">
                 <i class="fa fa-envelope prefix grey-text"></i>
-                <input ng-model="bank.bankaddress" type="text" id="form2" class="form-control">
-                <label for="form2">Bank Address</label>
+                <input ng-model="user.lastName" type="text" id="form2" class="form-control">
+                <label for="form2">Last Name</label>
             </div>
     
             <div class="md-form">
                 <i class="fa fa-tag prefix grey-text"></i>
-                <input ng-model="bank.contactNum" type="text" id="form32" class="form-control">
-                <label for="form34">Bank Contact Number</label>
-            </div>
-    
-            <div class="md-form">
-                <i class="fa fa-pencil prefix grey-text"></i>
-                <input ng-model="bank.logo" type="text" id="form32" class="form-control">
-                <label for="form8">Bank Logo</label>
+                <input ng-model="user.email" type="text" id="form32" class="form-control">
+                <label for="form34">Email Address</label>
             </div>
     
             <div class="text-center">
-                <button class="btn btn-unique" ng-click="addBank()">Save
+                <button class="btn btn-unique" ng-click="addUser()">Save
                 </button>
             </div>
     
