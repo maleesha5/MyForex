@@ -1,53 +1,41 @@
-<!-- Banner -->
-<section class="banner full">
-	<article>
-		<img src="../images/slide01.jpg" alt="" />
-		<div class="inner">
-			<header>
-				<p>A free responsive web site template by
-					<a href="https://templated.co">TEMPLATED</a>
-				</p>
-				<h2>Hielo</h2>
-			</header>
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<!-- Slide One - Set the background image for this slide in the line below -->
+			<div class="carousel-item active" style="background-image: url('../images/slide01.jpg')">
+				<div class="carousel-caption d-none d-md-block">
+					<h3>First Slide</h3>
+					<p>This is a description for the first slide.</p>
+				</div>
+			</div>
+			<!-- Slide Two - Set the background image for this slide in the line below -->
+			<div class="carousel-item" style="background-image: url('../images/slide02.jpg')">
+				<div class="carousel-caption d-none d-md-block">
+					<h3>Second Slide</h3>
+					<p>This is a description for the second slide.</p>
+				</div>
+			</div>
+			<!-- Slide Three - Set the background image for this slide in the line below -->
+			<div class="carousel-item" style="background-image: url('../images/slide03.jpg')">
+				<div class="carousel-caption d-none d-md-block">
+					<h3>Third Slide</h3>
+					<p>This is a description for the third slide.</p>
+				</div>
+			</div>
 		</div>
-	</article>
-	<article>
-		<img src="../images/slide02.jpg" alt="" />
-		<div class="inner">
-			<header>
-				<p>Lorem ipsum dolor sit amet nullam feugiat</p>
-				<h2>Magna etiam</h2>
-			</header>
-		</div>
-	</article>
-	<article>
-		<img src="../images/slide03.jpg" alt="" />
-		<div class="inner">
-			<header>
-				<p>Sed cursus aliuam veroeros lorem ipsum nullam</p>
-				<h2>Tempus dolor</h2>
-			</header>
-		</div>
-	</article>
-	<article>
-		<img src="../images/slide04.jpg" alt="" />
-		<div class="inner">
-			<header>
-				<p>Adipiscing lorem ipsum feugiat sed phasellus consequat</p>
-				<h2>Etiam feugiat</h2>
-			</header>
-		</div>
-	</article>
-	<article>
-		<img src="../images/slide05.jpg" alt="" />
-		<div class="inner">
-			<header>
-				<p>Ipsum dolor sed magna veroeros lorem ipsum</p>
-				<h2>Lorem adipiscing</h2>
-			</header>
-		</div>
-	</article>
-</section>
+		<a class="carousel-control-prev" target="_self" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next"  target="_self" href="#carouselExampleIndicators" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
 
 <div class="container">
 	<div class="container-custom">
@@ -104,7 +92,8 @@
 
 
 									<div class="dropdown-menu pre-scrollable">
-										<button ng-disabled="fromCurrency.currencyCode != 'LKR'" ng-repeat="currency in masterCurrencyList" class="dropdown-item" ng-click="setToCurrency(currency)">
+										<button ng-disabled="fromCurrency.currencyCode != 'LKR'" ng-repeat="currency in masterCurrencyList" class="dropdown-item"
+										 ng-click="setToCurrency(currency)">
 											<p ng-class="getFlag(currency.flag)" style="margin-right: 10px; margin-bottom: 0px"></p>
 											{{currency.currencyCode}}
 											<div class="dropdown-divider"></div>
@@ -210,16 +199,10 @@
 
 								</tr>
 							</tbody>
-						</table>
+					</table>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<!-- Scripts -->
-<script src="../assets/js/jquery.min.js"></script>
-<script src="../assets/js/jquery.scrollex.min.js"></script>
-<script src="../assets/js/skel.min.js"></script>
-<script src="../assets/js/util.js"></script>
-<script src="../assets/js/main.js"></script>
+</div>S
