@@ -1,470 +1,504 @@
-<link rel="stylesheet" href="styles/analytics.css" />
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<!-- /Start your project here-->
+<div class="container" style="margin-top: 5rem;">
+        <!-- Content here -->
 
-<body>
-        <!-- /Start your project here-->
-        <div class="container" style="margin-top: 5rem;">
-                <!-- Content here -->
-                <div class="row">
+        <div class="row">
 
-                        <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12">
+                <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12">
 
-                                <div class="container " style="margin-top:0;">
-                                        <div class="panel">
-                                                <div class="panel-heading" style="height: 50px;">
-                                                        <div class="row">
-                                                                <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
-                                                                        <h4 class="panel-title">
-                                                                                <p class="flag-icon flag-icon-us" style="margin-right: 10px; margin-bottom: 0px">
-                                                                                </p>USD - United States Dollar
-                                                                        </h4>
+                        <div class="container " style="margin-top:0;">
+                                <div class="panel">
+                                        <div class="panel-heading" style="height: 100px;">
+                                                <div class="row" style="align-items: center">
+                                                        <!-- <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6">
+                                                                                <h4 class="">
+                                                                                        <p class="flag-icon flag-icon-us" style="margin-right: 10px; margin-bottom: 0px">
+                                                                                        </p>USD - United States Dollar
+                                                                                </h4>
+                
+                                                                        </div>-->
+                                                        <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6" style="">
 
+                                                                <button ng-if="!fromCurrency" class="btn btn-outline-danger waves-effect" style="width: 140px;" type="button" data-toggle="dropdown"
+                                                                        aria-haspopup="true" aria-expanded="false">Currency</button>
+
+                                                                <button ng-if="fromCurrency" class="btn btn-outline-danger waves-effect" style="max-height: 45px; color: black;margin-right: 30px"
+                                                                        type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <p ng-class="getFlag(fromCurrency.flag)" style="white-space: nowrap; text-overflow: ellipsis"></p>
+                                                                        {{fromCurrency.currencyCode}}</button>
+
+
+                                                                <div class="dropdown-menu pre-scrollable">
+                                                                        <button ng-disabled="toCurrency.currencyCode!='LKR'" ng-repeat="currency in masterCurrencyList" class="dropdown-item" ng-click="setFromCurrency(currency)">
+                                                                                <p ng-class="getFlag(currency.flag)" style="margin-right: 10px; margin-bottom: 0px"></p>
+                                                                                {{currency.currencyCode}}
+                                                                                <div class="dropdown-divider"></div>
+                                                                        </button>
+
+                                                                        <div class="dropdown-divider"></div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="col-xl-5 col-lg-5 col-md-6 col-sm-6" style="">
+                                                                <button ng-if="!bankSelected" class="btn btn-outline-danger waves-effect" style="width: 250px;" type="button" data-toggle="dropdown"
+                                                                        aria-haspopup="true" aria-expanded="false">Bank</button>
+
+                                                                <button ng-if="bankSelected" class="btn btn-outline-danger waves-effect" style="margin-right: 30px;width: 250px; max-height: 45px; color: black"
+                                                                        type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false">
+                                                                        <p style="margin-right: 10px; margin-bottom: 0px;"></p>
+                                                                        {{bankSelected.bankName}}</button>
+
+                                                                <div class="dropdown-menu pre-scrollable" style="width: 350px">
+                                                                        <button ng-repeat="bank in bankList" class="dropdown-item" ng-click="setBankSelected(bank)">
+                                                                                <p style="margin-right: 10px; margin-bottom: 0px"></p>
+                                                                                {{bank.bankName}}
+                                                                                <div class="dropdown-divider"></div>
+                                                                        </button>
                                                                 </div>
                                                         </div>
                                                 </div>
-                                                <div class="panel-body">
-                                                        <p style="text-justify: distribute-all-lines">
-                                                                The US Dollar is the currency of United States. Our currency rankings show that the most popular United States Dollar exchange
-                                                                rate is the USD to EUR rate. The currency code for Dollars
-                                                                is USD, and the currency symbol is $. Below, you'll find
-                                                                US Dollar rates and a currency converter.
-                                                        </p>
-                                                        <p>
-                                                                The US Dollar is the most commonly converted currency in the world and is regularly used as a benchmark in the Forex market.
-                                                                As the dominant global reserve currency, it is held by nearly
-                                                                every central bank in the world. Additionally, the Dollar
-                                                                is used as the standard currency in the commodity market
-                                                                and therefore has a direct impact on commodity prices.
-                                                        </p>
+                                        </div>
+                                        <div class="panel-body">
+                                                <p style="text-justify: distribute-all-lines">
+                                                        The US Dollar is the currency of United States. Our currency rankings show that the most popular United States Dollar exchange
+                                                        rate is the USD to EUR rate. The currency code for Dollars is USD,
+                                                        and the currency symbol is $. Below, you'll find US Dollar rates
+                                                        and a currency converter.
+                                                </p>
+                                                <p>
+                                                        The US Dollar is the most commonly converted currency in the world and is regularly used as a benchmark in the Forex market.
+                                                        As the dominant global reserve currency, it is held by nearly every
+                                                        central bank in the world. Additionally, the Dollar is used as the
+                                                        standard currency in the commodity market and therefore has a direct
+                                                        impact on commodity prices.
+                                                </p>
 
-                                                        <div class="row">
-                                                                <div class="col-xl-6 col-lg-12 col-md-12" style="padding-left:10px; padding-right:10px;margin-bottom:10px">
-                                                                        <div class="card">
-                                                                                <div class="card-header green-text">
-                                                                                        Buying Values
-                                                                                </div>
-                                                                                <div class="card-body" style="padding:1.25rem;">
-                                                                                        <div>
-                                                                                                <h3 style="display: inline;">150.4500 </h3>
-                                                                                                <p style="display: inline;">LKR</p>
-                                                                                                <h5 style="display: inline; color: green; ">
-                                                                                                        <i class="fa fa-arrow-up fa-md" style="margin-left:10px;margin-right:5px; font-size: 24px " aria-hidden="true"></i>
-                                                                                                        0.2500</h5>
-                                                                                        </div>
-                                                                                        <div style="padding-top:1rem;">
-                                                                                                <small class="grey-text">Past week</small>
-                                                                                                <hr style="margin-top:.5rem;">
-                                                                                                <div class="row" style="margin-bottom:1rem;">
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.4190</h5>
-                                                                                                                <small class="grey-text">30/12/2017</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.2190</h5>
-                                                                                                                <small class="grey-text">29/12/2017</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.0190</h5>
-                                                                                                                <small class="grey-text">28/12/2017</small>
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                                <div class="row" style="margin-bottom:1rem;">
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.4190</h5>
-                                                                                                                <small class="grey-text">30/12/2017</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.2190</h5>
-                                                                                                                <small class="grey-text">29/12/2017</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.0190</h5>
-                                                                                                                <small class="grey-text">28/12/2017</small>
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                        </div>
-                                                                                        <div style="padding-top:1rem;">
-                                                                                                <small class="grey-text">Performance</small>
-                                                                                                <hr style="margin-top:.5rem;">
-                                                                                                <div class="row" style="margin-bottom:1rem;">
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.4190</h5>
-                                                                                                                <small class="grey-text">Week's High</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.2190</h5>
-                                                                                                                <small class="grey-text">30D High</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.0190</h5>
-                                                                                                                <small class="grey-text">90D High</small>
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                                <div class="row" style="margin-bottom:1rem;">
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.4190</h5>
-                                                                                                                <small class="grey-text">Week's Low</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.2190</h5>
-                                                                                                                <small class="grey-text">30D Low</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.0190</h5>
-                                                                                                                <small class="grey-text">90D Low</small>
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                        </div>
-                                                                                </div>
+                                                <div class="row">
+                                                        <div class="col-xl-6 col-lg-12 col-md-12" style="padding-left:10px; padding-right:10px;margin-bottom:10px">
+                                                                <div class="card">
+                                                                        <div class="card-header green-text">
+                                                                                Buying Values
                                                                         </div>
-                                                                </div>
-
-                                                                <div class="col-xl-6 col-lg-12 col-md-12" style="padding-left:10px; padding-right:10px;">
-                                                                        <div class="card">
-                                                                                <div class="card-header red-text">
-                                                                                        Selling Values
+                                                                        <div class="card-body" style="padding:1.25rem;">
+                                                                                <div>
+                                                                                        <h3 style="display: inline;">150.4500 </h3>
+                                                                                        <p style="display: inline;">LKR</p>
+                                                                                        <h5 style="display: inline; color: green; ">
+                                                                                                <i class="fa fa-arrow-up fa-md" style="margin-left:10px;margin-right:5px; font-size: 24px " aria-hidden="true"></i>
+                                                                                                0.2500</h5>
                                                                                 </div>
-                                                                                <div class="card-body" style="padding:1.25rem;">
-                                                                                        <div>
-                                                                                                <h3 style="display: inline;">150.4500 </h3>
-                                                                                                <p style="display: inline;">LKR</p>
-                                                                                                <h5 style="display: inline; color: green; ">
-                                                                                                        <i class="fa fa-arrow-up fa-md" style="margin-left:10px;margin-right:5px; font-size: 24px " aria-hidden="true"></i>
-                                                                                                        0.2500</h5>
-                                                                                        </div>
-                                                                                        <div style="padding-top:1rem;">
-                                                                                                <small class="grey-text">Past week</small>
-                                                                                                <hr style="margin-top:.5rem;">
-                                                                                                <div class="row" style="margin-bottom:1rem;">
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.4190</h5>
-                                                                                                                <small class="grey-text">30/12/2017</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.2190</h5>
-                                                                                                                <small class="grey-text">29/12/2017</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.0190</h5>
-                                                                                                                <small class="grey-text">28/12/2017</small>
-                                                                                                        </div>
+                                                                                <div style="padding-top:1rem;">
+                                                                                        <small class="grey-text">Past week</small>
+                                                                                        <hr style="margin-top:.5rem;">
+                                                                                        <div class="row" style="margin-bottom:1rem;">
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.4190</h5>
+                                                                                                        <small class="grey-text">30/12/2017</small>
                                                                                                 </div>
-                                                                                                <div class="row" style="margin-bottom:1rem;">
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.4190</h5>
-                                                                                                                <small class="grey-text">30/12/2017</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.2190</h5>
-                                                                                                                <small class="grey-text">29/12/2017</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.0190</h5>
-                                                                                                                <small class="grey-text">28/12/2017</small>
-                                                                                                        </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.2190</h5>
+                                                                                                        <small class="grey-text">29/12/2017</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.0190</h5>
+                                                                                                        <small class="grey-text">28/12/2017</small>
                                                                                                 </div>
                                                                                         </div>
-                                                                                        <div style="padding-top:1rem;">
-                                                                                                <small class="grey-text">Performance</small>
-                                                                                                <hr style="margin-top:.5rem;">
-                                                                                                <div class="row" style="margin-bottom:1rem;">
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.4190</h5>
-                                                                                                                <small class="grey-text">Week's High</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.2190</h5>
-                                                                                                                <small class="grey-text">30D High</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.0190</h5>
-                                                                                                                <small class="grey-text">90D High</small>
-                                                                                                        </div>
+                                                                                        <div class="row" style="margin-bottom:1rem;">
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.4190</h5>
+                                                                                                        <small class="grey-text">30/12/2017</small>
                                                                                                 </div>
-                                                                                                <div class="row" style="margin-bottom:1rem;">
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.4190</h5>
-                                                                                                                <small class="grey-text">Week's Low</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.2190</h5>
-                                                                                                                <small class="grey-text">30D Low</small>
-                                                                                                        </div>
-                                                                                                        <div class="col-4">
-                                                                                                                <h5 style="margin-bottom:0;">151.0190</h5>
-                                                                                                                <small class="grey-text">90D Low</small>
-                                                                                                        </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.2190</h5>
+                                                                                                        <small class="grey-text">29/12/2017</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.0190</h5>
+                                                                                                        <small class="grey-text">28/12/2017</small>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div style="padding-top:1rem;">
+                                                                                        <small class="grey-text">Performance</small>
+                                                                                        <hr style="margin-top:.5rem;">
+                                                                                        <div class="row" style="margin-bottom:1rem;">
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.4190</h5>
+                                                                                                        <small class="grey-text">Week's High</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.2190</h5>
+                                                                                                        <small class="grey-text">30D High</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.0190</h5>
+                                                                                                        <small class="grey-text">90D High</small>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        <div class="row" style="margin-bottom:1rem;">
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.4190</h5>
+                                                                                                        <small class="grey-text">Week's Low</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.2190</h5>
+                                                                                                        <small class="grey-text">30D Low</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.0190</h5>
+                                                                                                        <small class="grey-text">90D Low</small>
                                                                                                 </div>
                                                                                         </div>
                                                                                 </div>
                                                                         </div>
                                                                 </div>
                                                         </div>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="row" style="margin:1rem;"></div>
-                                <div class="container">
-                                        <div class="card">
-                                                <h4 class="card-header" style="text-align: center;font-weight: bold">USD Rates of other banks</h4>
-                                                <div class="card-body">
-                                                        <table class="table table-fluid table-sm table-hover table-bordered table-responsive table-hover" style="padding-left: 0px">
-                                                                <thead class="">
-                                                                        <tr>
-                                                                                <th scope="col" style="text-align: center; min-width: 100px">Bank</th>
-                                                                                <th scope="col" style="text-align: center; min-width: 80px">Buying Rate (LKR)</th>
-                                                                                <th scope="col" style="text-align: center; min-width: 80px">Selling Rate (LKR)</th>
-                                                                                <th scope="col" style="text-align: center; min-width: 80px">GetRates</th>
-                                                                        </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                        <tr>
-                                                                                <td>
-                                                                                        <p class="flag-icon flag-icon-us" style="margin-right: 10px; margin-bottom: 0px;"></p>BOC - Bank of Ceylon</td>
 
-                                                                                <td style="text-align: right">150.0000</td>
-                                                                                <td style="text-align: right">250.0000</td>
-                                                                                <td style="text-align: right">150.0000</td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                                <td>
-                                                                                        <p class="flag-icon flag-icon-gb" style="margin-right: 10px; margin-bottom: 0px;"></p>PLB - People's Bank</td>
-
-                                                                                <td style="text-align: right">150.0000</td>
-                                                                                <td style="text-align: right">250.0000</td>
-                                                                                <td style="text-align: right">150.0000</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                                <td>
-                                                                                        <p class="flag-icon flag-icon-eu" style="margin-right: 10px; margin-bottom: 0px"></p>SMP - Sampath Bank</td>
-
-                                                                                <td style="text-align: right">150.0000</td>
-                                                                                <td style="text-align: right">250.0000</td>
-                                                                                <td style="text-align: right">150.0000</td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                                <td>
-                                                                                        <p class="flag-icon flag-icon-ch" style="margin-right: 10px; margin-bottom: 0px"></p>COM - Commercial Bank of Ceylon</td>
-
-                                                                                <td style="text-align: right">150.0000</td>
-                                                                                <td style="text-align: right">250.0000</td>
-                                                                                <td style="text-align: right">150.0000</td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                                <td>
-                                                                                        <p class="flag-icon flag-icon-ca" style="margin-right: 10px; margin-bottom: 0px"></p>HNB - Hatton National Bank</td>
-
-                                                                                <td style="text-align: right">150.0000</td>
-                                                                                <td style="text-align: right">250.0000</td>
-                                                                                <td style="text-align: right">150.0000</td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                                <td>
-                                                                                        <p class="flag-icon flag-icon-au" style="margin-right: 10px; margin-bottom: 0px"></p>DFCC - DFCC Bank</td>
-
-                                                                                <td style="text-align: right">150.0000</td>
-                                                                                <td style="text-align: right">250.0000</td>
-                                                                                <td style="text-align: right">150.0000</td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                                <td>
-                                                                                        <p class="flag-icon flag-icon-sg" style="margin-right: 10px; margin-bottom: 0px"></p>SEY - Seylan Bank</td>
-
-                                                                                <td style="text-align: right">150.0000</td>
-                                                                                <td style="text-align: right">250.0000</td>
-                                                                                <td style="text-align: right">150.0000</td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                                <td>
-                                                                                        <p class="flag-icon flag-icon-jp" style="margin-right: 10px; margin-bottom: 0px"></p>NSB - National Savings Bank</td>
-
-                                                                                <td style="text-align: right">150.0000</td>
-                                                                                <td style="text-align: right">250.0000</td>
-                                                                                <td style="text-align: right">150.0000</td>
-
-                                                                        </tr>
-                                                                        <tr>
-                                                                                <td>
-                                                                                        <p class="flag-icon flag-icon-cn" style="margin-right: 10px; margin-bottom: 0px"></p>HSBC - HSBC Bank</td>
-
-                                                                                <td style="text-align: right">150.0000</td>
-                                                                                <td style="text-align: right">250.0000</td>
-                                                                                <td style="text-align: right">150.0000</td>
-
-                                                                        </tr>
-
-
-                                                                </tbody>
-                                                        </table>
+                                                        <div class="col-xl-6 col-lg-12 col-md-12" style="padding-left:10px; padding-right:10px;">
+                                                                <div class="card">
+                                                                        <div class="card-header red-text">
+                                                                                Selling Values
+                                                                        </div>
+                                                                        <div class="card-body" style="padding:1.25rem;">
+                                                                                <div>
+                                                                                        <h3 style="display: inline;">150.4500 </h3>
+                                                                                        <p style="display: inline;">LKR</p>
+                                                                                        <h5 style="display: inline; color: green; ">
+                                                                                                <i class="fa fa-arrow-up fa-md" style="margin-left:10px;margin-right:5px; font-size: 24px " aria-hidden="true"></i>
+                                                                                                0.2500</h5>
+                                                                                </div>
+                                                                                <div style="padding-top:1rem;">
+                                                                                        <small class="grey-text">Past week</small>
+                                                                                        <hr style="margin-top:.5rem;">
+                                                                                        <div class="row" style="margin-bottom:1rem;">
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.4190</h5>
+                                                                                                        <small class="grey-text">30/12/2017</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.2190</h5>
+                                                                                                        <small class="grey-text">29/12/2017</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.0190</h5>
+                                                                                                        <small class="grey-text">28/12/2017</small>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        <div class="row" style="margin-bottom:1rem;">
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.4190</h5>
+                                                                                                        <small class="grey-text">30/12/2017</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.2190</h5>
+                                                                                                        <small class="grey-text">29/12/2017</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.0190</h5>
+                                                                                                        <small class="grey-text">28/12/2017</small>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div style="padding-top:1rem;">
+                                                                                        <small class="grey-text">Performance</small>
+                                                                                        <hr style="margin-top:.5rem;">
+                                                                                        <div class="row" style="margin-bottom:1rem;">
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.4190</h5>
+                                                                                                        <small class="grey-text">Week's High</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.2190</h5>
+                                                                                                        <small class="grey-text">30D High</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.0190</h5>
+                                                                                                        <small class="grey-text">90D High</small>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        <div class="row" style="margin-bottom:1rem;">
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.4190</h5>
+                                                                                                        <small class="grey-text">Week's Low</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.2190</h5>
+                                                                                                        <small class="grey-text">30D Low</small>
+                                                                                                </div>
+                                                                                                <div class="col-4">
+                                                                                                        <h5 style="margin-bottom:0;">151.0190</h5>
+                                                                                                        <small class="grey-text">90D Low</small>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
                                                 </div>
                                         </div>
                                 </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 " style="margin-top:10px;display:inline-block">
-                                <div class="card-body" style="padding-top:1rem;">
-                                        <!--Title-->
-                                        <h4 class="card-title">Calculate</h4>
-                                        <hr style="margin-top:.5rem;">
-                                        <div class="md-form form-sm" style="margin-bottom:0px;">
+                        <div class="row" style="margin:1rem;"></div>
+                        <div class="container">
+                                <div class="card">
+                                        <h4 class="card-header" style="text-align: center;font-weight: bold">USD Rates of other banks</h4>
+                                        <div class="card-body">
+                                                <table class="table table-fluid table-sm table-hover table-bordered table-responsive table-hover" style="padding-left: 0px">
+                                                        <thead class="">
+                                                                <tr>
+                                                                        <th scope="col" style="text-align: center; min-width: 100px">Bank</th>
+                                                                        <th scope="col" style="text-align: center; min-width: 80px">Buying Rate (LKR)</th>
+                                                                        <th scope="col" style="text-align: center; min-width: 80px">Selling Rate (LKR)</th>
+                                                                        <th scope="col" style="text-align: center; min-width: 80px">GetRates</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr>
+                                                                        <td>
+                                                                                <p class="flag-icon flag-icon-us" style="margin-right: 10px; margin-bottom: 0px;"></p>BOC - Bank of Ceylon</td>
 
-                                                <input type="text" id="form1" class="form-control" placeholder="Enter Amount" style="display: inline;">
-                                                <div class="btn-group" style="display: inline">
-                                                        <button class="btn btn-danger btn-md dropdown-toggle" style="width: 160px;" type="button" data-toggle="dropdown" aria-haspopup="true"
-                                                                aria-expanded="false">From Currency</button>
+                                                                        <td style="text-align: right">150.0000</td>
+                                                                        <td style="text-align: right">250.0000</td>
+                                                                        <td style="text-align: right">150.0000</td>
 
-                                                        <div class="dropdown-menu pre-scrollable" style="width: 350px">
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-us" style="margin-right: 10px; margin-bottom: 0px"></p>USD - United States Dollar
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-gb" style="margin-right: 10px; margin-bottom: 0px"></p>GBP - Grate Britain Pound
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-eu" style="margin-right: 10px; margin-bottom: 0px"></p>EUR - Euro
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-ch" style="margin-right: 10px; margin-bottom: 0px"></p>CHF - Switzerland Frank
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-ca" style="margin-right: 10px; margin-bottom: 0px"></p>CAD - Canadian Dollar
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-au" style="margin-right: 10px; margin-bottom: 0px"></p>AUD - Australian Dollar
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-sg" style="margin-right: 10px; margin-bottom: 0px"></p>SGD - Singapore Dollar
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-jp" style="margin-right: 10px; margin-bottom: 0px"></p>JPY - Japanese Yen
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-cn" style="margin-right: 10px; margin-bottom: 0px"></p>CNY - Chinese Yuan
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-in" style="margin-right: 10px; margin-bottom: 0px"></p>INR - Indian Rupee
-                                                                </a>
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>
+                                                                                <p class="flag-icon flag-icon-gb" style="margin-right: 10px; margin-bottom: 0px;"></p>PLB - People's Bank</td>
 
-                                                                <div class="dropdown-divider"></div>
-                                                        </div>
-                                                </div>
+                                                                        <td style="text-align: right">150.0000</td>
+                                                                        <td style="text-align: right">250.0000</td>
+                                                                        <td style="text-align: right">150.0000</td>
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>
+                                                                                <p class="flag-icon flag-icon-eu" style="margin-right: 10px; margin-bottom: 0px"></p>SMP - Sampath Bank</td>
 
+                                                                        <td style="text-align: right">150.0000</td>
+                                                                        <td style="text-align: right">250.0000</td>
+                                                                        <td style="text-align: right">150.0000</td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>
+                                                                                <p class="flag-icon flag-icon-ch" style="margin-right: 10px; margin-bottom: 0px"></p>COM - Commercial Bank of Ceylon</td>
+
+                                                                        <td style="text-align: right">150.0000</td>
+                                                                        <td style="text-align: right">250.0000</td>
+                                                                        <td style="text-align: right">150.0000</td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>
+                                                                                <p class="flag-icon flag-icon-ca" style="margin-right: 10px; margin-bottom: 0px"></p>HNB - Hatton National Bank</td>
+
+                                                                        <td style="text-align: right">150.0000</td>
+                                                                        <td style="text-align: right">250.0000</td>
+                                                                        <td style="text-align: right">150.0000</td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>
+                                                                                <p class="flag-icon flag-icon-au" style="margin-right: 10px; margin-bottom: 0px"></p>DFCC - DFCC Bank</td>
+
+                                                                        <td style="text-align: right">150.0000</td>
+                                                                        <td style="text-align: right">250.0000</td>
+                                                                        <td style="text-align: right">150.0000</td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>
+                                                                                <p class="flag-icon flag-icon-sg" style="margin-right: 10px; margin-bottom: 0px"></p>SEY - Seylan Bank</td>
+
+                                                                        <td style="text-align: right">150.0000</td>
+                                                                        <td style="text-align: right">250.0000</td>
+                                                                        <td style="text-align: right">150.0000</td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>
+                                                                                <p class="flag-icon flag-icon-jp" style="margin-right: 10px; margin-bottom: 0px"></p>NSB - National Savings Bank</td>
+
+                                                                        <td style="text-align: right">150.0000</td>
+                                                                        <td style="text-align: right">250.0000</td>
+                                                                        <td style="text-align: right">150.0000</td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                        <td>
+                                                                                <p class="flag-icon flag-icon-cn" style="margin-right: 10px; margin-bottom: 0px"></p>HSBC - HSBC Bank</td>
+
+                                                                        <td style="text-align: right">150.0000</td>
+                                                                        <td style="text-align: right">250.0000</td>
+                                                                        <td style="text-align: right">150.0000</td>
+
+                                                                </tr>
+
+
+                                                        </tbody>
+                                                </table>
                                         </div>
-                                        <div class="md-form form-sm" style="margin-bottom:0px;">
-                                                <input type="text" id="form1" class="form-control" placeholder="Value" style="display: inline;" disabled>
-                                                <div class="btn-group" style="display: inline">
-                                                        <button class="btn btn-danger btn-md dropdown-toggle" style="width: 160px;" type="button" data-toggle="dropdown" aria-haspopup="true"
-                                                                aria-expanded="false">From Currency</button>
-
-                                                        <div class="dropdown-menu pre-scrollable" style="width: 350px">
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-us" style="margin-right: 10px; margin-bottom: 0px"></p>USD - United States Dollar
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-gb" style="margin-right: 10px; margin-bottom: 0px"></p>GBP - Grate Britain Pound
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-eu" style="margin-right: 10px; margin-bottom: 0px"></p>EUR - Euro
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-ch" style="margin-right: 10px; margin-bottom: 0px"></p>CHF - Switzerland Frank
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-ca" style="margin-right: 10px; margin-bottom: 0px"></p>CAD - Canadian Dollar
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-au" style="margin-right: 10px; margin-bottom: 0px"></p>AUD - Australian Dollar
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-sg" style="margin-right: 10px; margin-bottom: 0px"></p>SGD - Singapore Dollar
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-jp" style="margin-right: 10px; margin-bottom: 0px"></p>JPY - Japanese Yen
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-cn" style="margin-right: 10px; margin-bottom: 0px"></p>CNY - Chinese Yuan
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a class="dropdown-item" href="#">
-                                                                        <p class="flag-icon flag-icon-in" style="margin-right: 10px; margin-bottom: 0px"></p>INR - Indian Rupee
-                                                                </a>
-
-                                                                <div class="dropdown-divider"></div>
-                                                        </div>
-                                                </div>
-                                        </div>
-
-                                </div>
-                                <div class="list-group" style="margin-top:1rem; ">
-                                        <a class="list-group-item" href="#">
-                                                <p class="flag-icon flag-icon-gb" style="margin-right: 10px; margin-bottom: 0px"></p>&nbsp; British Pound</td>
-                                                <span class="float-right">
-                                                        <p style="display:inline-table; color: green;margin-bottom: 0px ; margin-right:10px">150.5000</p>&nbsp; &nbsp;
-                                                        <p style="display:inline-table; color: red;margin-bottom: 0px">148.5000</p>&nbsp; </a>
-                                        </span>
-                                        </a>
-                                        <a class="list-group-item" href="#">
-                                                <p class="flag-icon flag-icon-in" style="margin-right: 10px; margin-bottom: 0px"></p>&nbsp; Indian Rupee
-                                                <span class="float-right">
-                                                        <p style="display:inline-table; color: green;margin-bottom: 0px; margin-right:10px">150.5000</p>&nbsp; &nbsp;
-                                                        <p style="display:inline-table; color: red;margin-bottom: 0px">148.5000</p>&nbsp; </a>
-                                        </span>
-                                        </a>
-
-                                        <a class="list-group-item" href="#">
-                                                <p class="flag-icon flag-icon-eu" style="margin-right: 10px; margin-bottom: 0px; display:inline-table"></p>&nbsp; Euro
-                                                <span class="float-right">
-                                                        <p style="display:inline-table; color: green; margin-bottom: 0px; margin-right:10px">150.5000</p>&nbsp; &nbsp;
-                                                        <p style="display:inline-table; color: red; margin-bottom: 0px">148.5000</p>&nbsp; </a>
-                                        </span>
-                                        <a class="list-group-item" href="#">
-                                                <p class="flag-icon flag-icon-ch" style="margin-right: 10px; margin-bottom: 0px"></p>&nbsp; Switzerland Frank
-                                                <span class="float-right">
-                                                        <p style="display:inline-table; color: green; margin-bottom: 0px; margin-right:10px">150.5000</p>&nbsp; &nbsp;
-                                                        <p style="display:inline-table; color: red; margin-bottom: 0px">148.5000</p>&nbsp; </a>
-                                        </span>
-                                        </a>
-                                        <a class="list-group-item" href="#">
-                                                <p class="flag-icon flag-icon-ca" style="margin-right: 10px; margin-bottom: 0px"></p>&nbsp; Canadian Dollar
-                                                <span class="float-right">
-                                                        <p style="display:inline-table; color: green; margin-bottom: 0px; margin-right:10px">150.5000</p>&nbsp; &nbsp;
-                                                        <p style="display:inline-table; color: red; margin-bottom: 0px">148.5000</p>&nbsp; </a>
-                                        </span>
-                                        </a>
                                 </div>
                         </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 " style="margin-top:10px;display:inline-block">
+                        <div class="card-body" style="padding-top:1rem;">
+                                <!--Title-->
+                                <h4 class="card-title">Calculate</h4>
+                                <hr style="margin-top:.5rem;">
+                                <div class="md-form form-sm" style="margin-bottom:0px;">
 
+                                        <input type="text" id="form1" class="form-control" placeholder="Enter Amount" style="display: inline;">
+                                        <div class="btn-group" style="display: inline">
+                                                <button class="btn btn-danger btn-md dropdown-toggle" style="width: 160px;" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">From Currency</button>
+
+                                                <div class="dropdown-menu pre-scrollable" style="width: 350px">
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-us" style="margin-right: 10px; margin-bottom: 0px"></p>USD - United States Dollar
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-gb" style="margin-right: 10px; margin-bottom: 0px"></p>GBP - Grate Britain Pound
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-eu" style="margin-right: 10px; margin-bottom: 0px"></p>EUR - Euro
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-ch" style="margin-right: 10px; margin-bottom: 0px"></p>CHF - Switzerland Frank
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-ca" style="margin-right: 10px; margin-bottom: 0px"></p>CAD - Canadian Dollar
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-au" style="margin-right: 10px; margin-bottom: 0px"></p>AUD - Australian Dollar
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-sg" style="margin-right: 10px; margin-bottom: 0px"></p>SGD - Singapore Dollar
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-jp" style="margin-right: 10px; margin-bottom: 0px"></p>JPY - Japanese Yen
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-cn" style="margin-right: 10px; margin-bottom: 0px"></p>CNY - Chinese Yuan
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-in" style="margin-right: 10px; margin-bottom: 0px"></p>INR - Indian Rupee
+                                                        </a>
+
+                                                        <div class="dropdown-divider"></div>
+                                                </div>
+                                        </div>
+
+                                </div>
+                                <div class="md-form form-sm" style="margin-bottom:0px;">
+                                        <input type="text" id="form1" class="form-control" placeholder="Value" style="display: inline;" disabled>
+                                        <div class="btn-group" style="display: inline">
+                                                <button class="btn btn-danger btn-md dropdown-toggle" style="width: 160px;" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">From Currency</button>
+
+                                                <div class="dropdown-menu pre-scrollable" style="width: 350px">
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-us" style="margin-right: 10px; margin-bottom: 0px"></p>USD - United States Dollar
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-gb" style="margin-right: 10px; margin-bottom: 0px"></p>GBP - Grate Britain Pound
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-eu" style="margin-right: 10px; margin-bottom: 0px"></p>EUR - Euro
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-ch" style="margin-right: 10px; margin-bottom: 0px"></p>CHF - Switzerland Frank
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-ca" style="margin-right: 10px; margin-bottom: 0px"></p>CAD - Canadian Dollar
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-au" style="margin-right: 10px; margin-bottom: 0px"></p>AUD - Australian Dollar
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-sg" style="margin-right: 10px; margin-bottom: 0px"></p>SGD - Singapore Dollar
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-jp" style="margin-right: 10px; margin-bottom: 0px"></p>JPY - Japanese Yen
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-cn" style="margin-right: 10px; margin-bottom: 0px"></p>CNY - Chinese Yuan
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">
+                                                                <p class="flag-icon flag-icon-in" style="margin-right: 10px; margin-bottom: 0px"></p>INR - Indian Rupee
+                                                        </a>
+
+                                                        <div class="dropdown-divider"></div>
+                                                </div>
+                                        </div>
+                                </div>
+
+                        </div>
+                        <div class="list-group" style="margin-top:1rem; ">
+                                <a class="list-group-item" href="#">
+                                        <p class="flag-icon flag-icon-gb" style="margin-right: 10px; margin-bottom: 0px"></p>&nbsp; British Pound</td>
+                                        <span class="float-right">
+                                                <p style="display:inline-table; color: green;margin-bottom: 0px ; margin-right:10px">150.5000</p>&nbsp; &nbsp;
+                                                <p style="display:inline-table; color: red;margin-bottom: 0px">148.5000</p>&nbsp; </a>
+                                </span>
+                                </a>
+                                <a class="list-group-item" href="#">
+                                        <p class="flag-icon flag-icon-in" style="margin-right: 10px; margin-bottom: 0px"></p>&nbsp; Indian Rupee
+                                        <span class="float-right">
+                                                <p style="display:inline-table; color: green;margin-bottom: 0px; margin-right:10px">150.5000</p>&nbsp; &nbsp;
+                                                <p style="display:inline-table; color: red;margin-bottom: 0px">148.5000</p>&nbsp; </a>
+                                </span>
+                                </a>
+
+                                <a class="list-group-item" href="#">
+                                        <p class="flag-icon flag-icon-eu" style="margin-right: 10px; margin-bottom: 0px; display:inline-table"></p>&nbsp; Euro
+                                        <span class="float-right">
+                                                <p style="display:inline-table; color: green; margin-bottom: 0px; margin-right:10px">150.5000</p>&nbsp; &nbsp;
+                                                <p style="display:inline-table; color: red; margin-bottom: 0px">148.5000</p>&nbsp; </a>
+                                </span>
+                                <a class="list-group-item" href="#">
+                                        <p class="flag-icon flag-icon-ch" style="margin-right: 10px; margin-bottom: 0px"></p>&nbsp; Switzerland Frank
+                                        <span class="float-right">
+                                                <p style="display:inline-table; color: green; margin-bottom: 0px; margin-right:10px">150.5000</p>&nbsp; &nbsp;
+                                                <p style="display:inline-table; color: red; margin-bottom: 0px">148.5000</p>&nbsp; </a>
+                                </span>
+                                </a>
+                                <a class="list-group-item" href="#">
+                                        <p class="flag-icon flag-icon-ca" style="margin-right: 10px; margin-bottom: 0px"></p>&nbsp; Canadian Dollar
+                                        <span class="float-right">
+                                                <p style="display:inline-table; color: green; margin-bottom: 0px; margin-right:10px">150.5000</p>&nbsp; &nbsp;
+                                                <p style="display:inline-table; color: red; margin-bottom: 0px">148.5000</p>&nbsp; </a>
+                                </span>
+                                </a>
+                        </div>
                 </div>
 
         </div>
 
+</div>
 
 
-        </div>
 
-        </div>
+</div>
 
-
-</body>
+</div>

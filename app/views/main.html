@@ -50,20 +50,22 @@
 </section>
 
 <div class="container">
-<div class="container-custom">
-	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 " style="padding-bottom: 15px">
-			<div class="card">
-				<div class="card-header">
-					<h4 style="text-align: center;font-weight: bold">Currency Converter</h4>
-				</div>
+	<div class="container-custom">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 " style="padding-bottom: 15px">
+				<div class="card">
+					<div class="card-header">
+						<h4 style="text-align: center;font-weight: bold">Currency Converter</h4>
+					</div>
 
-				<div class="card-body" style="height: auto">
-					<div style="vertical-align: center; align-content: center">
-						<form class="form-inline" style="padding-left: 25px;">
-							<div class="md-form form-group">
+					<div class="card-body" style="height: auto">
+						<div style="vertical-align: center; align-content: center">
+							<form class="form-inline" style="padding-left: 25px;">
 								<div class="btn-group" style="padding-top: 15px;">
 
+									<div class="" style="padding-top: 15px;margin-right: 20px">
+										<span style="margin-top: 5px" class=>From</span>
+									</div>
 									<button ng-if="!fromCurrency" class="btn btn-outline-danger waves-effect" style="width: 140px;margin-right: 30px" type="button"
 									 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Currency</button>
 
@@ -74,7 +76,7 @@
 
 
 									<div class="dropdown-menu pre-scrollable">
-										<button ng-repeat="currency in masterCurrencyList" class="dropdown-item" ng-click="setFromCurrency(currency)">
+										<button ng-disabled="toCurrency.currencyCode!='LKR'" ng-repeat="currency in masterCurrencyList" class="dropdown-item" ng-click="setFromCurrency(currency)">
 											<p ng-class="getFlag(currency.flag)" style="margin-right: 10px; margin-bottom: 0px"></p>
 											{{currency.currencyCode}}
 											<div class="dropdown-divider"></div>
@@ -84,16 +86,38 @@
 									</div>
 								</div>
 								<div class="md-form form-group" style="margin-top: 25px">
-									<input type="number" value="0.0" id="lblToAmount" ng-model="fromAmount" ng-change="fromCurrencyOnChange()" class="form-control validate">
-									<label for="form1" class="">Amount</label>
+									<input type="number" value="0.0" id="lblToAmount" ng-model="fromAmount" ng-change="calculateResultAmount()" class="form-control validate">
+									<label for="form1" class="active">Amount</label>
 								</div>
-							</div>
-							<div class="md-form form-group">
-								<div class="btn-group" style="padding-top: 15px;">
-									<button ng-if="!bankSelected" class="btn btn-outline-danger waves-effect" style="width: 250px;" type="button" data-toggle="dropdown"
-									 aria-haspopup="true" aria-expanded="false">Bank</button>
 
-									<button ng-if="bankSelected" class="btn btn-outline-danger waves-effect" style="width: 250px; max-height: 45px; color: black"
+								<div class="btn-group" style="padding-top: 15px;">
+									<div class="" style="padding-top: 15px;margin-right: 20px">
+										<span style="margin-top: 5px" class=>To</span>
+									</div>
+									<button ng-if="!toCurrency" class="btn btn-outline-danger waves-effect" style="width: 140px;margin-right: 30px" type="button"
+									 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Currency</button>
+
+									<button ng-if="toCurrency" class="btn btn-outline-danger waves-effect" style="max-height: 45px; color: black;margin-right: 30px"
+									 type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<p ng-class="getFlag(toCurrency.flag)" style="white-space: nowrap; text-overflow: ellipsis"></p>
+										{{toCurrency.currencyCode}}</button>
+
+
+									<div class="dropdown-menu pre-scrollable">
+										<button ng-disabled="fromCurrency.currencyCode != 'LKR'" ng-repeat="currency in masterCurrencyList" class="dropdown-item" ng-click="setToCurrency(currency)">
+											<p ng-class="getFlag(currency.flag)" style="margin-right: 10px; margin-bottom: 0px"></p>
+											{{currency.currencyCode}}
+											<div class="dropdown-divider"></div>
+										</button>
+
+										<div class="dropdown-divider"></div>
+									</div>
+								</div>
+								<div class="btn-group" style="padding-top: 15px;">
+									<button ng-if="!bankSelected" class="btn btn-outline-danger waves-effect" style="width: 250px;margin-right: 30px" type="button"
+									 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bank</button>
+
+									<button ng-if="bankSelected" class="btn btn-outline-danger waves-effect" style="margin-right: 30px;width: 250px; max-height: 45px; color: black"
 									 type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										<p style="margin-right: 10px; margin-bottom: 0px;"></p>
 										{{bankSelected.bankName}}</button>
@@ -106,93 +130,92 @@
 										</button>
 									</div>
 								</div>
-							</div>
-							<div class="md-form form-group" style="margin-top: 25px">
-								<h3>
-									<span style="margin-bottom: 20px" class="badge red">{{toAmount | currency : "Rs"}}</span>
-								</h3>
-							</div>
+								<div class="" style="padding-top: 15px">
+									<h2>
+										<span style="margin-top: 5px" class="badge red">{{resultAmount | currency : currencySymbol}}</span>
+									</h2>
+								</div>
 
-						</form>
+							</form>
+
+						</div>
 
 					</div>
+				</div>
 
+			</div>
+		</div>
+	</div>
+	<div class="container-custom">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+				<div class="card bg-light mb-3">
+					<h4 class="card-header" style="text-align: center;font-weight: bold">Daily Exchange Rates From Central Bank</h4>
+					<div class="card-body">
+						<table class="table table-hover">
+							<thead class="table-inverse" style="background: #f8f9fa">
+								<tr>
+									<th scope="col" style="font-size: 16px; color: black;">Country</th>
+									<th scope="col" style="font-size: 16px; color: black;">Currency</th>
+									<th scope="col" style="font-size: 16px; color: black;">Sell Rate</th>
+									<th scope="col" style="font-size: 16px; color: black;">Buy Rate</th>
+								</tr>
+							</thead>
+							<tbody style="background: #fff">
+								<tr ng-repeat="cbRate in cbRatesList">
+									<th scope="row" style="font-size: 16px">
+										<p ng-class="getFlag(cbRate.currerncyMaster.flag)" style="margin-right: 5px;margin-bottom: 0px"></p>{{cbRate.currerncyMaster.country}}</th>
+									<td>{{cbRate.currerncyMaster.name}} ({{cbRate.currerncyMaster.currencyCode}})</td>
+									<td>{{cbRate.buyRate | currency : ""}}</td>
+									<td>{{cbRate.sellRate | currency : ""}}</td>
+								</tr>
+							</tbody>
+						</table>
+						<footer class="blockquote-footer">Source Of Data
+							<cite title="Source Title">Central Bank Sri Lanka</cite>
+						</footer>
+					</div>
 				</div>
 			</div>
 
 		</div>
 	</div>
-</div>
-<div class="container-custom">
-	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-			<div class="card bg-light mb-3">
-				<h4 class="card-header" style="text-align: center;font-weight: bold">Daily Exchange Rates From Central Bank</h4>
-				<div class="card-body">
-					<table class="table table-hover">
-						<thead class="table-inverse" style="background: #f8f9fa">
-							<tr>
-								<th scope="col" style="font-size: 16px; color: black;">Country</th>
-								<th scope="col" style="font-size: 16px; color: black;">Currency</th>
-								<th scope="col" style="font-size: 16px; color: black;">Sell Rate</th>
-								<th scope="col" style="font-size: 16px; color: black;">Buy Rate</th>
-							</tr>
-						</thead>
-						<tbody style="background: #fff">
-							<tr ng-repeat="cbRate in cbRatesList">
-								<th scope="row" style="font-size: 16px">
-									<p ng-class="getFlag(cbRate.currerncyMaster.flag)" style="margin-right: 5px;margin-bottom: 0px"></p>{{cbRate.currerncyMaster.country}}</th>
-								<td>{{cbRate.currerncyMaster.name}} ({{cbRate.currerncyMaster.currencyCode}})</td>
-								<td>{{cbRate.buyRate | currency : ""}}</td>
-								<td>{{cbRate.sellRate | currency : ""}}</td>
-							</tr>
-						</tbody>
-					</table>
-					<footer class="blockquote-footer">Source Of Data
-						<cite title="Source Title">Central Bank Sri Lanka</cite>
-					</footer>
-				</div>
-			</div>
-		</div>
 
-	</div>
-</div>
+	<div class="container-custom">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+				<div class="card">
+					<h4 class="card-header" style="text-align: center;font-weight: bold">Best Rates in Sri Lanka</h4>
+					<div class="card-body">
+						<table class="table table-sm table-hover table-bordered table-responsive table-hover" style="padding-left: 0px">
+							<thead class="" style="background: #f8f9fa">
+								<tr>
+									<th scope="col" style="text-align: center; min-width: 150px">Bank</th>
+									<th scope="col" style="text-align: center; min-width: 100px">GetRates</th>
 
-<div class="container-custom">
-	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-			<div class="card">
-				<h4 class="card-header" style="text-align: center;font-weight: bold">Best Rates in Sri Lanka</h4>
-				<div class="card-body">
-					<table class="table table-sm table-hover table-bordered table-responsive table-hover" style="padding-left: 0px">
-						<thead class="" style="background: #f8f9fa">
-							<tr>
-								<th scope="col" style="text-align: center; min-width: 150px">Bank</th>
-								<th scope="col" style="text-align: center; min-width: 100px">GetRates</th>
+									<th ng-repeat="currency in masterCurrencyList" scope="col" style="text-align: center; min-width: 80px">
+										<p ng-class="getFlag(currency.flag)" style="margin-right: 10px; margin-bottom: 0px"></p>{{currency.currencyCode}}</th>
+								</tr>
+							</thead>
+							<tbody style="background: #fff">
+								<tr ng-repeat="bank in bankList">
+									<td style="text-align: left">
+										<p class="flag-icon flag-icon-us" style="margin-right: 10px; margin-bottom: 0px;"></p>{{bank.bankName}}</td>
+									<td>
+										<a class="badge badge-pill badge-light" data-toggle="modal" data-target="#exampleModal" ng-click="openModal()" role="button"
+										 style="margin-left: 15px">Get Rates</a>
+									</td>
+									<td ng-repeat="currency in masterCurrencyList" style="text-align: left">{{getBankSellRateForCurrency(bank, currency) | currency : ""}}
+										<br/>{{getBankBuyRateForCurrency(bank, currency) | currency : ""}}</td>
 
-								<th ng-repeat="currency in masterCurrencyList" scope="col" style="text-align: center; min-width: 80px">
-									<p ng-class="getFlag(currency.flag)" style="margin-right: 10px; margin-bottom: 0px"></p>{{currency.currencyCode}}</th>
-							</tr>
-						</thead>
-						<tbody style="background: #fff">
-							<tr ng-repeat="bank in bankList">
-								<td style="text-align: left">
-									<p class="flag-icon flag-icon-us" style="margin-right: 10px; margin-bottom: 0px;"></p>{{bank.bankName}}</td>
-								<td>
-									<a class="badge badge-pill badge-light" data-toggle="modal" data-target="#exampleModal" ng-click="openModal()" role="button"
-									 style="margin-left: 15px">Get Rates</a>
-								</td>
-								<td ng-repeat="currency in masterCurrencyList" style="text-align: left">{{getBankSellRateForCurrency(bank, currency) | currency : ""}}
-									<br/>{{getBankBuyRateForCurrency(bank, currency) | currency : ""}}</td>
-
-							</tr>
-						</tbody>
-					</table>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 <!-- Scripts -->
 <script src="../assets/js/jquery.min.js"></script>
