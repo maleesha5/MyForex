@@ -68,8 +68,54 @@ angular
       })
       .when('/analytics', {
         templateUrl: 'views/curanalysis.html',
-        controller: 'AddRatesCtrl',
-        controllerAs: ''
+        controller: 'Analytics',
+        resolve: {
+          // I will cause a 1 second delay
+          masterCurrencyList: function (CurrencyService) {
+            return CurrencyService.getMasterCurrencyList().then(function (response) {
+              return response.data;
+            }, function (error) {
+              return error.data;
+            })
+          },
+          bankList: function (BankService) {
+            return BankService.getBankList().then(function (response) {
+              return response.data;
+            }, function (error) {
+              return error.data;
+            })
+          },
+          bankRatesList: function (BankRatesService) {
+            return BankRatesService.getBankRatesByCurrentDate().then(function (response) {
+              return response.data;
+            }, function (error) {
+              return error.data;
+            })
+          }
+        }
+      })
+      .when('/exgRates', {
+        templateUrl: 'views/exgRates.html',
+        controller: 'ExgRatesCtrl',
+        controllerAs: '',
+        resolve: {
+          // I will cause a 1 second delay
+          masterCurrencyList: function (CurrencyService) {
+            return CurrencyService.getMasterCurrencyList().then(function (response) {
+              return response.data;
+            }, function (error) {
+              return error.data;
+            })
+          },
+          bankList: function (BankService) {
+            return BankService.getBankList().then(function (response) {
+              return response.data;
+            }, function (error) {
+              return error.data;
+            })
+          }
+
+        }
       })
       .when('/addcbrates', {
         templateUrl: 'views/addCBRates.html',

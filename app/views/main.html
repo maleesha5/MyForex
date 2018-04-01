@@ -1,145 +1,152 @@
-	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-		<ol class="carousel-indicators">
-			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner" role="listbox">
-			<!-- Slide One - Set the background image for this slide in the line below -->
-			<div class="carousel-item active" style="background-image: url('../images/slide01.jpg')">
-				<div class="carousel-caption d-none d-md-block">
-					<h3>First Slide</h3>
-					<p>This is a description for the first slide.</p>
-				</div>
-			</div>
-			<!-- Slide Two - Set the background image for this slide in the line below -->
-			<div class="carousel-item" style="background-image: url('../images/slide02.jpg')">
-				<div class="carousel-caption d-none d-md-block">
-					<h3>Second Slide</h3>
-					<p>This is a description for the second slide.</p>
-				</div>
-			</div>
-			<!-- Slide Three - Set the background image for this slide in the line below -->
-			<div class="carousel-item" style="background-image: url('../images/slide03.jpg')">
-				<div class="carousel-caption d-none d-md-block">
-					<h3>Third Slide</h3>
-					<p>This is a description for the third slide.</p>
-				</div>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	</ol>
+	<div class="carousel-inner" role="listbox">
+		<!-- Slide One - Set the background image for this slide in the line below -->
+		<div class="carousel-item active" style="background-image: url('../images/slide01.jpg')">
+			<div class="carousel-caption d-none d-md-block">
+				<h3>First Slide</h3>
+				<p>This is a description for the first slide.</p>
 			</div>
 		</div>
-		<a class="carousel-control-prev" target="_self" href="#carouselExampleIndicators" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="carousel-control-next"  target="_self" href="#carouselExampleIndicators" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
-
-<div class="container">
-	<div class="container-custom">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 " style="padding-bottom: 15px">
-				<div class="card">
-					<div class="card-header">
-						<h4 style="text-align: center;font-weight: bold">Currency Converter</h4>
-					</div>
-
-					<div class="card-body" style="height: auto">
-						<div style="vertical-align: center; align-content: center">
-							<form class="form-inline" style="padding-left: 25px;">
-								<div class="btn-group" style="padding-top: 15px;">
-
-									<div class="" style="padding-top: 15px;margin-right: 20px">
-										<span style="margin-top: 5px" class=>From</span>
-									</div>
-									<button ng-if="!fromCurrency" class="btn btn-outline-danger waves-effect" style="width: 140px;margin-right: 30px" type="button"
-									 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Currency</button>
-
-									<button ng-if="fromCurrency" class="btn btn-outline-danger waves-effect" style="max-height: 45px; color: black;margin-right: 30px"
-									 type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<p ng-class="getFlag(fromCurrency.flag)" style="white-space: nowrap; text-overflow: ellipsis"></p>
-										{{fromCurrency.currencyCode}}</button>
-
-
-									<div class="dropdown-menu pre-scrollable">
-										<button ng-disabled="toCurrency.currencyCode!='LKR'" ng-repeat="currency in masterCurrencyList" class="dropdown-item" ng-click="setFromCurrency(currency)">
-											<p ng-class="getFlag(currency.flag)" style="margin-right: 10px; margin-bottom: 0px"></p>
-											{{currency.currencyCode}}
-											<div class="dropdown-divider"></div>
-										</button>
-
-										<div class="dropdown-divider"></div>
-									</div>
-								</div>
-								<div class="md-form form-group" style="margin-top: 25px">
-									<input type="number" value="0.0" id="lblToAmount" ng-model="fromAmount" ng-change="calculateResultAmount()" class="form-control validate">
-									<label for="form1" class="active">Amount</label>
-								</div>
-
-								<div class="btn-group" style="padding-top: 15px;">
-									<div class="" style="padding-top: 15px;margin-right: 20px">
-										<span style="margin-top: 5px" class=>To</span>
-									</div>
-									<button ng-if="!toCurrency" class="btn btn-outline-danger waves-effect" style="width: 140px;margin-right: 30px" type="button"
-									 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Currency</button>
-
-									<button ng-if="toCurrency" class="btn btn-outline-danger waves-effect" style="max-height: 45px; color: black;margin-right: 30px"
-									 type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<p ng-class="getFlag(toCurrency.flag)" style="white-space: nowrap; text-overflow: ellipsis"></p>
-										{{toCurrency.currencyCode}}</button>
-
-
-									<div class="dropdown-menu pre-scrollable">
-										<button ng-disabled="fromCurrency.currencyCode != 'LKR'" ng-repeat="currency in masterCurrencyList" class="dropdown-item"
-										 ng-click="setToCurrency(currency)">
-											<p ng-class="getFlag(currency.flag)" style="margin-right: 10px; margin-bottom: 0px"></p>
-											{{currency.currencyCode}}
-											<div class="dropdown-divider"></div>
-										</button>
-
-										<div class="dropdown-divider"></div>
-									</div>
-								</div>
-								<div class="btn-group" style="padding-top: 15px;">
-									<button ng-if="!bankSelected" class="btn btn-outline-danger waves-effect" style="width: 250px;margin-right: 30px" type="button"
-									 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bank</button>
-
-									<button ng-if="bankSelected" class="btn btn-outline-danger waves-effect" style="margin-right: 30px;width: 250px; max-height: 45px; color: black"
-									 type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<p style="margin-right: 10px; margin-bottom: 0px;"></p>
-										{{bankSelected.bankName}}</button>
-
-									<div class="dropdown-menu pre-scrollable" style="width: 350px">
-										<button ng-repeat="bank in bankList" class="dropdown-item" ng-click="setBankSelected(bank)">
-											<p style="margin-right: 10px; margin-bottom: 0px"></p>
-											{{bank.bankName}}
-											<div class="dropdown-divider"></div>
-										</button>
-									</div>
-								</div>
-								<div class="" style="padding-top: 15px">
-									<h2>
-										<span style="margin-top: 5px" class="badge red">{{resultAmount | currency : currencySymbol}}</span>
-									</h2>
-								</div>
-
-							</form>
-
-						</div>
-
-					</div>
-				</div>
-
+		<!-- Slide Two - Set the background image for this slide in the line below -->
+		<div class="carousel-item" style="background-image: url('../images/slide02.jpg')">
+			<div class="carousel-caption d-none d-md-block">
+				<h3>Second Slide</h3>
+				<p>This is a description for the second slide.</p>
+			</div>
+		</div>
+		<!-- Slide Three - Set the background image for this slide in the line below -->
+		<div class="carousel-item" style="background-image: url('../images/slide03.jpg')">
+			<div class="carousel-caption d-none d-md-block">
+				<h3>Third Slide</h3>
+				<p>This is a description for the third slide.</p>
 			</div>
 		</div>
 	</div>
+	<a class="carousel-control-prev" target="_self" href="#carouselExampleIndicators" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" target="_self" href="#carouselExampleIndicators" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div>
+</br>
+<div class="container" >
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 " style="padding-bottom: 15px">
+			<div class="card" style="box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,.1);">
+				<div class="card-header">
+					<h5 style="text-align: center;font-weight: bold">Currency Converter</h5>
+				</div>
+
+				<div class="card-body" style="height: auto">
+					<div style="vertical-align: center; align-content: center">
+						<form class="form-inline" style="padding-left: 25px;">
+							
+							<div class="btn-group" style="padding-top: 15px;">
+								<div class="" style="padding-top: 15px;margin-right: 20px">
+									<span style="margin-top: 5px" class=>From</span>
+								</div>
+								<button ng-if="!fromCurrency" class="btn btn-outline-danger waves-effect" style="width: 140px;margin-right: 30px;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 2px 2px 0 rgba(0, 0, 0, 0.12);" type="button"
+								 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Currency</button>
+
+								<button ng-if="fromCurrency" class="btn btn-outline-danger waves-effect" 
+								style="max-height: 45px; color: black;margin-right: 30px; padding-left:15px; padding-right:15px; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 2px 2px 0 rgba(0, 0, 0, 0.12);"
+								 type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<p ng-class="getFlag(fromCurrency.flag)" style="white-space: nowrap; text-overflow: ellipsis"></p>
+									{{fromCurrency.currencyCode}}</button>
+
+
+								<div class="dropdown-menu pre-scrollable">
+									<button ng-disabled="toCurrency.currencyCode!='LKR'" ng-repeat="currency in masterCurrencyList" class="dropdown-item" ng-click="setFromCurrency(currency)">
+										<p ng-class="getFlag(currency.flag)" ></p>
+										{{currency.currencyCode}}
+										<div class="dropdown-divider"></div>
+									</button>
+
+									<div class="dropdown-divider"></div>
+								</div>
+							</div>
+
+							<div class="md-form form-group" style="margin-top: 25px">
+								<input type="number" value="0.0" id="lblToAmount" ng-model="fromAmount" ng-change="calculateResultAmount()" class="form-control validate">
+								<label for="form1" class="active">Amount</label>
+							</div>
+
+							<div class="btn-group" style="padding-top: 15px;">
+								<div class="" style="padding-top: 15px;margin-right: 20px">
+									<span style="margin-top: 5px" class=>To</span>
+								</div>
+								<button ng-if="!toCurrency" class="btn btn-outline-danger waves-effect" style="width: 140px;margin-right: 30px" type="button"
+								 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Currency</button>
+
+								<button ng-if="toCurrency" class="btn btn-outline-danger waves-effect" style="max-height: 45px; color: black;margin-right: 30px; padding-left:15px; padding-right:15px; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 2px 2px 0 rgba(0, 0, 0, 0.12); "
+								 type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<p ng-class="getFlag(toCurrency.flag)" style="white-space: nowrap; text-overflow: ellipsis"></p>
+									{{toCurrency.currencyCode}}</button>
+
+
+								<div class="dropdown-menu pre-scrollable">
+									<button ng-disabled="fromCurrency.currencyCode != 'LKR'" ng-repeat="currency in masterCurrencyList" class="dropdown-item"
+									 ng-click="setToCurrency(currency)">
+										<p ng-class="getFlag(currency.flag)" style="margin-right: 10px; margin-bottom: 0px"></p>
+										{{currency.currencyCode}}
+										<div class="dropdown-divider"></div>
+									</button>
+
+									<div class="dropdown-divider"></div>
+								</div>
+							</div>
+							<div class="btn-group" style="padding-top: 15px;">
+								<button ng-if="!bankSelected" class="btn btn-outline-danger waves-effect" style="width: 250px;margin-right: 30px;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 2px 2px 0 rgba(0, 0, 0, 0.12);" type="button"
+								 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bank</button>
+
+								<button ng-if="bankSelected" class="btn btn-outline-danger waves-effect" style="padding-left:15px; padding-right:15px;margin-right: 30px;width: 250px; max-height: 45px; color: black; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 2px 2px 0 rgba(0, 0, 0, 0.12);"
+								 type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<p style="
+									white-space: nowrap;
+									overflow: hidden;
+									display: inline-block;
+									text-overflow: ellipsis;
+									margin: 0">{{bankSelected.bankName}}</p>
+									</button>
+
+								<div class="dropdown-menu pre-scrollable" style="width: 350px">
+									<button ng-repeat="bank in bankList" class="dropdown-item" ng-click="setBankSelected(bank)">
+										<p style="margin-right: 10px; margin-bottom: 0px"></p>
+										{{bank.bankName}}
+										<div class="dropdown-divider"></div>
+									</button>
+								</div>
+							</div>
+							<div class="" style="padding-top: 15px">
+								<h2>
+									<span style="margin-top: 5px" class="badge red">{{resultAmount | currency : currencySymbol}}</span>
+								</h2>
+							</div>
+
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	</br>
 	<div class="container-custom">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-				<div class="card bg-light mb-3">
-					<h4 class="card-header" style="text-align: center;font-weight: bold">Daily Exchange Rates From Central Bank</h4>
+				<div class="card bg-light mb-3" style="box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,.1);">
+					<h5 class="card-header" style="text-align: center;font-weight: bold">Daily Exchange Rates From Central Bank</h5>
 					<div class="card-body">
 						<table class="table table-hover">
 							<thead class="table-inverse" style="background: #f8f9fa">
@@ -160,21 +167,18 @@
 								</tr>
 							</tbody>
 						</table>
-						<footer class="blockquote-footer">Source Of Data
-							<cite title="Source Title">Central Bank Sri Lanka</cite>
-						</footer>
 					</div>
 				</div>
 			</div>
 
 		</div>
 	</div>
-
+	</br>
 	<div class="container-custom">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-				<div class="card">
-					<h4 class="card-header" style="text-align: center;font-weight: bold">Best Rates in Sri Lanka</h4>
+				<div class="card" style="box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,.1);">
+					<h5 class="card-header" style="text-align: center;font-weight: bold">Best Rates in Sri Lanka</h5>
 					<div class="card-body">
 						<table class="table table-sm table-hover table-bordered table-responsive table-hover" style="padding-left: 0px">
 							<thead class="" style="background: #f8f9fa">
@@ -199,10 +203,10 @@
 
 								</tr>
 							</tbody>
-					</table>
+						</table>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>S
+</div>
