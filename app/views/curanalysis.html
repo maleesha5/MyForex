@@ -77,9 +77,9 @@
                                                                                 <div>
                                                                                         <h3 style="display: inline;">{{todayRateOfSelectedBank.buyRate}}</h3>
                                                                                         <p style="display: inline;">LKR</p>
-                                                                                        <h5 style="display: inline; color: green; ">
-                                                                                                <i class="fa fa-arrow-up fa-md" style="margin-left:10px;margin-right:5px; font-size: 24px " aria-hidden="true"></i>
-                                                                                                0.2500</h5>
+                                                                                        <h5 style="display: inline;" ng-style="calculatedDiff.buyRateStyle">
+                                                                                                <i class="fa fa-md" ng-class="{'fa-arrow-down' : !calculatedDiff.buyRateDiffPositive, 'fa-arrow-up' : calculatedDiff.buyRateDiffPositive}" style="margin-left:10px;margin-right:5px; font-size: 24px " aria-hidden="true"></i>
+                                                                                                {{calculatedDiff.buyRateDiff | number:2}}</h5>
                                                                                 </div>
                                                                                 <div style="padding-top:1rem;">
                                                                                         <small class="grey-text">Past week</small>
@@ -158,9 +158,11 @@
                                                                                 <div>
                                                                                         <h3 style="display: inline;">{{todayRateOfSelectedBank.sellRate}}</h3>
                                                                                         <p style="display: inline;">LKR</p>
-                                                                                        <h5 style="display: inline; color: green; ">
-                                                                                                <i class="fa fa-arrow-up fa-md" style="margin-left:10px;margin-right:5px; font-size: 24px " aria-hidden="true"></i>
-                                                                                                0.2500</h5>
+                                                                                        <h5 style="display: inline;" ng-style="calculatedDiff.sellRateStyle">
+                                                                                                <i class="fa fa-md" ng-class="{'fa-arrow-down' : !calculatedDiff.sellRateDiffPositive, 'fa-arrow-up' : calculatedDiff.sellRateDiffPositive}"
+                                                                                                        style="margin-left:10px;margin-right:5px; font-size: 24px "
+                                                                                                        aria-hidden="true"></i>
+                                                                                                {{calculatedDiff.sellRateDiff | number:2}}</h5>
                                                                                 </div>
                                                                                 <div style="padding-top:1rem;">
                                                                                         <small class="grey-text">Past week</small>
@@ -249,8 +251,7 @@
                                                         <tbody>
                                                                 <tr ng-repeat="rate in ratesOfOtherBanks">
                                                                         <td style="text-align: left">
-                                                                                <img ng-src="..\images\{{getBankByBankId(rate.bankId).bankDisplayCode}}.png"
-                                                                                        width="30" height="30" style="margin-right:5px;"></img>{{getBankByBankId(rate.bankId).bankName}}</td>
+                                                                                <img ng-src="..\images\{{getBankByBankId(rate.bankId).bankDisplayCode}}.png" width="30" height="30" style="margin-right:5px;"></img>{{getBankByBankId(rate.bankId).bankName}}</td>
                                                                         <td style="text-align: right">{{rate.sellRate | currency : ""}}</td>
                                                                         <td style="text-align: right">{{rate.buyRate | currency : ""}}</td>
                                                                 </tr>

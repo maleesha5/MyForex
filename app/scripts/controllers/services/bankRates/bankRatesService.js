@@ -28,6 +28,10 @@ angular.module('myForexlkApp')
       }
     }
 
+    this.getRatesByBankAndCurrencyForPastThreeMonths = function (bank, code) {
+
+      return $http.get('http://localhost:8085/bankRates/bank/' + bank + '/currency/' + code);
+    }
 
 
   });
