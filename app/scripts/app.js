@@ -113,8 +113,14 @@ angular
             }, function (error) {
               return error.data;
             })
+          },
+          bankRatesList: function (BankRatesService) {
+            return BankRatesService.getBankRatesByCurrentDate().then(function (response) {
+              return response.data;
+            }, function (error) {
+              return error.data;
+            })
           }
-
         }
       })
       .when('/addcbrates', {

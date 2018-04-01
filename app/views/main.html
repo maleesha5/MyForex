@@ -114,12 +114,14 @@
 									overflow: hidden;
 									display: inline-block;
 									text-overflow: ellipsis;
-									margin: 0">{{bankSelected.bankName}}</p>
+									margin: 0"><img ng-src="..\images\{{bank.bankDisplayCode}}.png" width="30" height="30" style="margin-right:5px;" ></img>
+									{{bankSelected.bankName}}</p>
 									</button>
 
 								<div class="dropdown-menu pre-scrollable" style="width: 350px">
 									<button ng-repeat="bank in bankList" class="dropdown-item" ng-click="setBankSelected(bank)">
 										<p style="margin-right: 10px; margin-bottom: 0px"></p>
+										<img ng-src="..\images\{{bank.bankDisplayCode}}.png" width="30" height="30" style="margin-right:5px;" ></img>
 										{{bank.bankName}}
 										<div class="dropdown-divider"></div>
 									</button>
@@ -183,9 +185,7 @@
 						<table class="table table-sm table-hover table-bordered table-responsive table-hover" style="padding-left: 0px">
 							<thead class="" style="background: #f8f9fa">
 								<tr>
-									<th scope="col" style="text-align: center; min-width: 150px">Bank</th>
-									<th scope="col" style="text-align: center; min-width: 100px">GetRates</th>
-
+									<th scope="col" style="text-align: center; min-width: 250px">Bank</th>
 									<th ng-repeat="currency in masterCurrencyList" scope="col" style="text-align: center; min-width: 80px">
 										<p ng-class="getFlag(currency.flag)" style="margin-right: 10px; margin-bottom: 0px"></p>{{currency.currencyCode}}</th>
 								</tr>
@@ -193,11 +193,8 @@
 							<tbody style="background: #fff">
 								<tr ng-repeat="bank in bankList">
 									<td style="text-align: left">
-										<p class="flag-icon flag-icon-us" style="margin-right: 10px; margin-bottom: 0px;"></p>{{bank.bankName}}</td>
-									<td>
-										<a class="badge badge-pill badge-light" data-toggle="modal" data-target="#exampleModal" ng-click="openModal()" role="button"
-										 style="margin-left: 15px">Get Rates</a>
-									</td>
+										<p style="margin-right: 10px; margin-bottom: 0px;"></p><img ng-src="..\images\{{bank.bankDisplayCode}}.png" width="30" height="30" style="margin-right:5px;" ></img>{{bank.bankName}}</td>
+									
 									<td ng-repeat="currency in masterCurrencyList" style="text-align: left">{{getBankSellRateForCurrency(bank, currency) | currency : ""}}
 										<br/>{{getBankBuyRateForCurrency(bank, currency) | currency : ""}}</td>
 

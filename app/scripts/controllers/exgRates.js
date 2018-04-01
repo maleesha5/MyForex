@@ -8,10 +8,11 @@
  * Controller of the myForexlkApp
  */
 angular.module('myForexlkApp')
-  .controller('ExgRatesCtrl', function ($scope, $uibModal, masterCurrencyList, bankList) {
+  .controller('ExgRatesCtrl', function ($scope, $uibModal, masterCurrencyList, bankList, bankRatesList) {
 
     $scope.masterCurrencyList = masterCurrencyList;
     $scope.bankList = bankList;
+    $scope.bankRatesList = bankRatesList;
     $scope.bankSelected = bankList[0];
 
     $scope.getFlag = function (flag) {
